@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giya Campaign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --abyss:#0a1a1f;
+    --abyss-bottom:#071519;
+    --panel:#0f2930;
+    --panel-edge:rgba(201,163,92,.22);
+    --brass:#c9a35c;
+    --brass-bright:#e7ca8c;
+    --bone:#ece1c8;
+    --seafoam:#83a7a0;
+    --rule:rgba(201,163,92,.28);
+    --code-bg:#081317;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    min-height:100vh;
+    background:radial-gradient(120% 80% at 50% -10%, #12333a 0%, var(--abyss) 42%, var(--abyss-bottom) 100%);
+    color:var(--bone);
+    font-family:"EB Garamond",Georgia,serif;
+    font-size:18px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 96px;
+  }
+  .sheet{max-width:780px;margin:0 auto}
+
+  /* Masthead */
+  .eyebrow{
+    font-family:"IM Fell English SC",serif;
+    letter-spacing:.42em;text-transform:uppercase;font-size:.72rem;
+    color:var(--seafoam);text-align:center;margin:0 0 .9rem;padding-left:.42em;
+  }
+  .masthead{
+    font-family:"IM Fell English SC",serif;text-align:center;
+    font-size:clamp(2.6rem,8vw,4.4rem);line-height:.95;
+    color:var(--brass-bright);margin:0;text-shadow:0 1px 0 rgba(0,0,0,.5);
+  }
+  .divider{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin:1.6rem auto 0;max-width:420px;color:var(--brass);
+  }
+  .divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--rule),transparent)}
+  .divider .mark{font-size:.7rem;transform:rotate(45deg);opacity:.85}
+  .lede{
+    text-align:center;font-style:italic;color:var(--seafoam);
+    font-size:1rem;margin:1.1rem auto 0;max-width:560px;
+  }
+
+  /* Session accordion */
+  .log{margin-top:3.4rem;display:flex;flex-direction:column;gap:14px}
+  details.session{
+    border:1px solid var(--panel-edge);border-radius:3px;
+    background:linear-gradient(180deg,var(--panel),#0c232a);
+    overflow:hidden;
+  }
+  details.session > summary{
+    list-style:none;cursor:pointer;
+    padding:1.1rem 1.3rem;
+    display:flex;align-items:center;gap:1rem;
+    transition:background .2s ease;user-select:none;
+  }
+  details.session > summary::-webkit-details-marker{display:none}
+  details.session > summary:hover{background:rgba(201,163,92,.06)}
+  details.session > summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
+  .summary-text{flex:1;min-width:0}
+  .ord{
+    font-family:"IM Fell English SC",serif;
+    letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;
+    color:var(--seafoam);display:block;margin-bottom:.18rem;
+  }
+  .title{
+    font-family:"IM Fell English",serif;font-size:1.4rem;line-height:1.1;
+    color:var(--brass-bright);
+  }
+  .chev{
+    flex:0 0 auto;font-family:"EB Garamond",serif;font-size:1.3rem;
+    color:var(--brass);transition:transform .25s ease;
+  }
+  details.session[open] > summary .chev{transform:rotate(180deg)}
+
+  /* Empty sessions */
+  details.empty .title{color:rgba(236,225,200,.4)}
+  .empty-body{padding:0 1.3rem 1.3rem;color:var(--seafoam);font-style:italic;font-size:.92rem}
+
+  /* Session body */
+  .session-body{padding:.4rem 1.3rem 1.5rem;border-top:1px solid rgba(201,163,92,.12)}
+  .scene{margin-top:1.6rem}
+  .scene:first-child{margin-top:.6rem}
+  .scene h3{
+    font-family:"IM Fell English",serif;font-weight:400;
+    font-size:1.2rem;color:var(--brass-bright);margin:0 0 .3rem;
+    display:flex;align-items:baseline;gap:.55rem;
+  }
+  .scene h3::before{content:"";width:16px;height:1px;background:var(--brass);transform:translateY(-.35em)}
+  .scene ul{list-style:none;margin:.3rem 0 0;padding:0}
+  .scene li{
+    position:relative;padding:.26rem 0 .26rem 1.35rem;
+    border-bottom:1px solid rgba(201,163,92,.08);
+  }
+  .scene li:last-child{border-bottom:none}
+  .scene li::before{content:"";position:absolute;left:.2rem;top:1.02em;width:5px;height:5px;background:var(--brass);transform:rotate(45deg)}
+  .scene li em.gap{color:var(--seafoam);font-style:italic}
+  .scene ul.sub{margin:.4rem 0 .1rem;padding-left:.3rem}
+  .scene ul.sub li{border-bottom:none;padding:.12rem 0 .12rem 1.1rem;font-size:.96em}
+  .scene ul.sub li::before{top:.92em;width:4px;height:4px;background:var(--seafoam);opacity:.85}
+  .endnote{
+    margin-top:1.8rem;padding-top:.9rem;
+    border-top:1px solid rgba(201,163,92,.14);
+    font-family:"IM Fell English",serif;font-style:italic;
+    color:var(--brass);font-size:.95rem;text-align:right;
+  }
+  .tldr{
+    margin:.4rem 0 1.9rem;padding:.95rem 1.1rem;
+    border-left:2px solid var(--brass);
+    background:rgba(201,163,92,.06);border-radius:0 3px 3px 0;
+  }
+  .tldr .tldr-label{
+    display:block;font-family:"IM Fell English SC",serif;
+    letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;
+    color:var(--seafoam);margin-bottom:.4rem;
+  }
+  .tldr p{margin:0}
+  .tldr .level{margin-top:.55rem;font-style:italic;color:var(--brass);font-size:.9rem}
+
+  /* Markup disclosure (nested) */
+  details.markup{
+    margin-top:2rem;border:1px solid var(--panel-edge);border-radius:3px;
+    background:var(--code-bg);overflow:hidden;
+  }
+  details.markup > summary{
+    list-style:none;cursor:pointer;
+    font-family:"IM Fell English SC",serif;
+    letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;
+    color:var(--brass-bright);
+    padding:.9rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    transition:background .2s ease;
+  }
+  details.markup > summary::-webkit-details-marker{display:none}
+  details.markup > summary:hover{background:rgba(201,163,92,.07)}
+  details.markup > summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
+  details.markup[open] > summary .chev{transform:rotate(180deg)}
+  .markup-body{padding:0 1.1rem 1.1rem}
+  .markup-note{font-size:.86rem;color:var(--seafoam);font-style:italic;margin:.1rem 0 .9rem}
+  pre{
+    margin:0;background:#05101300;background-color:#050f12;
+    border:1px solid rgba(201,163,92,.16);border-radius:3px;
+    padding:1rem 1.1rem;overflow:auto;color:var(--bone);
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:.8rem;line-height:1.55;white-space:pre;
+  }
+  .copy{
+    margin-top:.9rem;font-family:"IM Fell English SC",serif;
+    letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;
+    color:var(--abyss);background:var(--brass);border:none;border-radius:3px;
+    padding:.65rem 1.25rem;cursor:pointer;transition:background .18s ease,transform .05s ease;
+  }
+  .copy:hover{background:var(--brass-bright)}
+  .copy:active{transform:translateY(1px)}
+  .copy:focus-visible{outline:2px solid var(--brass-bright);outline-offset:2px}
+
+  .foot{text-align:center;margin-top:3.2rem;font-size:.84rem;color:var(--seafoam);font-style:italic}
+
+  @media (max-width:520px){
+    body{font-size:17px;padding:36px 14px 72px}
+    .title{font-size:1.25rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <p class="eyebrow">Dungeon Master: Froggy</p>
+    <h1 class="masthead">Giya Campaign</h1>
+    <div class="divider"><span class="line"></span><span class="mark">&#9670;</span><span class="line"></span></div>
+    <p class="lede">If you find inaccuracies, blame Web</p>
+
+    <section class="log">
+
+      <details class="session"><summary><span class="summary-text"><span class="ord">Session I</span><span class="title">The Carnival</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No notes were collected for this session.</div></details>
+
+      <details class="session"><summary><span class="summary-text"><span class="ord">Session II</span><span class="title">Jackson the Bull Kills Goblins</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No notes were collected for this session.</div></details>
+
+      <details class="session">
+        <summary><span class="summary-text"><span class="ord">Session III</span><span class="title">The Library</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+
+          <div class="tldr">
+            <span class="tldr-label">TL;DR</span>
+            <p>A lengthy lore dump reveals that 70 years ago six dark gods joined forces to turn the world into a playground of destruction, each one now tied to a party member. Prickly falls for a book, and the royal lady tasks them with finding a cannon. -Claude</p>
+            <p class="level">Party at level 3.</p>
+          </div>
+
+          <div class="scene">
+            <ul>
+              <li>The party finds out much in the lore dump of the century.</li>
+              <li>70 years ago, 6 dark gods attempted to break into the world. They normally are solo, but this time they joined together to have the planet as a playground of destruction. It's a possibility they have agents on the planet.
+                <ul class="sub">
+                  <li>Saval: temptress, red horns, ambition</li>
+                  <li>Bilogis: famine, green</li>
+                  <li>Vugak: clown, laughter and trickery</li>
+                  <li>Volmol: big red one, war and destruction</li>
+                  <li>Izmataz: god of knowledge</li>
+                  <li>Imotet: god of death</li>
+                </ul>
+              </li>
+              <li>Each of these deities is responsible for and connected to many of the players:
+                <ul class="sub">
+                  <li>Saval is assumed to be affecting Eris.</li>
+                  <li>Bilogis is assumed to be affecting Hella.</li>
+                  <li>Vugak is assumed to be affecting Ezekial.</li>
+                  <li>Volmol is assumed to be affecting Lance.</li>
+                  <li>Izmataz is assumed to be affecting no one. Prickly is positive he is not being affected. The DM laughed for some unrelated reason.</li>
+                  <li>Imotet is assumed to be affecting Jeros, although that is not specifically said in game.</li>
+                </ul>
+              </li>
+              <li>Prickly falls in love with a book and is eventually dragged out of the library with book in hand.</li>
+              <li>They learn from the royal lady they need to find a cannon.</li>
+            </ul>
+          </div>
+
+          <p class="endnote">Ended session at level 3.</p>
+
+          <details class="markup">
+            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
+            <div class="markup-body">
+              <p class="markup-note">Copy this and paste straight into Discord.</p>
+<pre id="md-3">## Session 3: The Library
+&gt; **TL;DR:** A lengthy lore dump reveals that 70 years ago six dark gods joined forces to turn the world into a playground of destruction, each one now tied to a party member. Prickly falls for a book, and the royal lady tasks them with finding a cannon. -Claude
+&gt; **Level:** 3
+
+- The party finds out much in the lore dump of the century.
+- 70 years ago, 6 dark gods attempted to break into the world. They normally are solo, but this time they joined together to have the planet as a playground of destruction. It's a possibility they have agents on the planet.
+  - Saval: temptress, red horns, ambition
+  - Bilogis: famine, green
+  - Vugak: clown, laughter and trickery
+  - Volmol: big red one, war and destruction
+  - Izmataz: god of knowledge
+  - Imotet: god of death
+- Each of these deities is responsible for and connected to many of the players:
+  - Saval is assumed to be affecting Eris.
+  - Bilogis is assumed to be affecting Hella.
+  - Vugak is assumed to be affecting Ezekial.
+  - Volmol is assumed to be affecting Lance.
+  - Izmataz is assumed to be affecting no one. Prickly is positive he is not being affected. The DM laughed for some unrelated reason.
+  - Imotet is assumed to be affecting Jeros, although that is not specifically said in game.
+- Prickly falls in love with a book and is eventually dragged out of the library with book in hand.
+- They learn from the royal lady they need to find a cannon.
+
+*Ended session at level 3.*</pre>
+              <button class="copy" type="button" data-target="md-3" onclick="copyMarkup(this)">Copy markup</button>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+      <details class="session">
+        <summary><span class="summary-text"><span class="ord">Session IV</span><span class="title">The Casino</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+
+          <div class="tldr">
+            <span class="tldr-label">TL;DR</span>
+            <p>After a friendly tea party with Broxagar the Sheriff, the party heads to the casino and traces the cannon to a lady in red: Orphelia, a powerful pirate captain who turns out to be Prickly's long-lost adopted sister and the holder of the cannon they sought. Ezekiel is punched clean out of the campaign, Hella declares herself married to Prickly, and the party leaves with Orphelia. -Claude</p>
+            <p class="level">Party at level 3.</p>
+          </div>
+
+          <div class="scene">
+            <ul>
+              <li>They met Broxagar the Sheriff and had a nice tea party with him.</li>
+              <li>Prickly left Broxagar spiders to tend to the pests in his beloved garden.</li>
+              <li>The party also meets with Fizzle Industries and learns more about the cannon they were after, being held by a lady in red.</li>
+              <li>Prickly found out some plants are fake and horribly kept.</li>
+              <li>Jeros gambles.</li>
+              <li>There is the great arena fight where Ezekiel is one-punched so hard he left the campaign.</li>
+              <li>They learn gambling is bad by seeing Ed Sheram lose it all.</li>
+              <li>Prickly met the lady in red, named Orphelia, a powerful pirate captain, and learns more about how Jeros stole her parrot, leading to his outcasting. Prickly finds out Orphelia is his long-lost adopted sister.</li>
+              <li>In an effort to save Prickly from himself, Hella lets everyone know, including Prickly, that Prickly and Hella are married now. Prickly agrees.</li>
+              <li>They all leave with Orphelia.</li>
+              <li>They also discover Orphelia was the recipient of the cannon they needed to find.</li>
+            </ul>
+          </div>
+
+          <p class="endnote">Ended session at level 3.</p>
+
+          <details class="markup">
+            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
+            <div class="markup-body">
+              <p class="markup-note">Copy this and paste straight into Discord.</p>
+<pre id="md-4">## Session 4: The Casino
+&gt; **TL;DR:** After a friendly tea party with Broxagar the Sheriff, the party heads to the casino and traces the cannon to a lady in red: Orphelia, a powerful pirate captain who turns out to be Prickly's long-lost adopted sister and the holder of the cannon they sought. Ezekiel is punched clean out of the campaign, Hella declares herself married to Prickly, and the party leaves with Orphelia. -Claude
+&gt; **Level:** 3
+
+- They met Broxagar the Sheriff and had a nice tea party with him.
+- Prickly left Broxagar spiders to tend to the pests in his beloved garden.
+- The party also meets with Fizzle Industries and learns more about the cannon they were after, being held by a lady in red.
+- Prickly found out some plants are fake and horribly kept.
+- Jeros gambles.
+- There is the great arena fight where Ezekiel is one-punched so hard he left the campaign.
+- They learn gambling is bad by seeing Ed Sheram lose it all.
+- Prickly met the lady in red, named Orphelia, a powerful pirate captain, and learns more about how Jeros stole her parrot, leading to his outcasting. Prickly finds out Orphelia is his long-lost adopted sister.
+- In an effort to save Prickly from himself, Hella lets everyone know, including Prickly, that Prickly and Hella are married now. Prickly agrees.
+- They all leave with Orphelia.
+- They also discover Orphelia was the recipient of the cannon they needed to find.
+
+*Ended session at level 3.*</pre>
+              <button class="copy" type="button" data-target="md-4" onclick="copyMarkup(this)">Copy markup</button>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+      <details class="session">
+        <summary><span class="summary-text"><span class="ord">Session V</span><span class="title">The Plague Island</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+
+          <div class="tldr">
+            <span class="tldr-label">TL;DR</span>
+            <p>Prickly's new seagull spy network finds the black ship. En route to Pirate Island the party lands on a plague-stricken island, beats back the risen dead, and heals it, with Jeros landing the finishing blow on the boss. They identify Bilogis as the root cause and Darahan as a likely lead. -Claude</p>
+            <p class="level">Party at level 4.</p>
+          </div>
+
+          <div class="scene">
+            <ul>
+              <li>Prickly founds a new network of espionage and spycraft through his trusty seagulls, and finds out where the black ship is by using this.</li>
+              <li>The party comes across an island on the way to Pirate Island that has been stricken with a deadly and seemingly magical plague.</li>
+              <li>The black ship owned by Darahan the Black was seen dumping bodies of dead slaves into the ocean, which washed ashore and became the onset of the pandemic.</li>
+              <li>The ill began to rise as sickly, zombie-like beings that fought the party until the party beat them back, healing the island from the plague.</li>
+              <li>The battle was single-handedly won by Jeros (insert sarcasm sign), but jokes aside, Jeros did have a great finishing move on the boss.</li>
+              <li>The party realizes that Bilogis is the root cause, but they suspect Darahan may have some part to play, or at the least be a lead in their investigation.</li>
+            </ul>
+          </div>
+
+          <p class="endnote">Ended session at level 4.</p>
+
+          <details class="markup">
+            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
+            <div class="markup-body">
+              <p class="markup-note">Copy this and paste straight into Discord.</p>
+<pre id="md-5">## Session 5: The Plague Island
+&gt; **TL;DR:** Prickly's new seagull spy network finds the black ship. En route to Pirate Island the party lands on a plague-stricken island, beats back the risen dead, and heals it, with Jeros landing the finishing blow on the boss. They identify Bilogis as the root cause and Darahan as a likely lead. -Claude
+&gt; **Level:** 4
+
+- Prickly founds a new network of espionage and spycraft through his trusty seagulls, and finds out where the black ship is by using this.
+- The party comes across an island on the way to Pirate Island that has been stricken with a deadly and seemingly magical plague.
+- The black ship owned by Darahan the Black was seen dumping bodies of dead slaves into the ocean, which washed ashore and became the onset of the pandemic.
+- The ill began to rise as sickly, zombie-like beings that fought the party until the party beat them back, healing the island from the plague.
+- The battle was single-handedly won by Jeros (insert sarcasm sign), but jokes aside, Jeros did have a great finishing move on the boss.
+- The party realizes that Bilogis is the root cause, but they suspect Darahan may have some part to play, or at the least be a lead in their investigation.
+
+*Ended session at level 4.*</pre>
+              <button class="copy" type="button" data-target="md-5" onclick="copyMarkup(this)">Copy markup</button>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+      <details class="session">
+        <summary><span class="summary-text"><span class="ord">Session VI</span><span class="title">Intro to the Pirate Island</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+
+          <div class="tldr">
+            <span class="tldr-label">TL;DR</span>
+            <p>The party reaches the pirate island and digs into Jeros's situation, getting precious little help from Jeros himself. Prickly has an emotional reunion with his father Khozi, now in his final form as a magical tree, and starts looking into reaching that same druidic state. -Claude</p>
+            <p class="level">Party at level 4.</p>
+          </div>
+
+          <div class="scene">
+            <ul>
+              <li>The party arrived at the pirate island and found out more about Jeros and his situation, despite Jeros being as helpful as a toothpick at a dentist's office.</li>
+              <li>Darahan the Black is a meanie.</li>
+              <li>Prickly reunites in an emotional reunion with his father Khozi. Prickly is overjoyed with his father's final form as a magical tree. Prickly investigates how he may also achieve this new form of druid nirvana.</li>
+            </ul>
+          </div>
+
+          <p class="endnote">Ended session at level 4.</p>
+
+          <details class="markup">
+            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
+            <div class="markup-body">
+              <p class="markup-note">Copy this and paste straight into Discord.</p>
+<pre id="md-6">## Session 6: Intro to the Pirate Island
+&gt; **TL;DR:** The party reaches the pirate island and digs into Jeros's situation, getting precious little help from Jeros himself. Prickly has an emotional reunion with his father Khozi, now in his final form as a magical tree, and starts looking into reaching that same druidic state. -Claude
+&gt; **Level:** 4
+
+- The party arrived at the pirate island and found out more about Jeros and his situation, despite Jeros being as helpful as a toothpick at a dentist's office.
+- Darahan the Black is a meanie.
+- Prickly reunites in an emotional reunion with his father Khozi. Prickly is overjoyed with his father's final form as a magical tree. Prickly investigates how he may also achieve this new form of druid nirvana.
+
+*Ended session at level 4.*</pre>
+              <button class="copy" type="button" data-target="md-6" onclick="copyMarkup(this)">Copy markup</button>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+      <details class="session">
+        <summary><span class="summary-text"><span class="ord">Session VII</span><span class="title">Taking the Sea Dragon</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+
+          <div class="tldr">
+            <span class="tldr-label">TL;DR</span>
+            <p>Captured the ship The Sea Dragon, killed her captain, and took the survivors' surrender. Earned 390 gp each and gained a baby great white shark named Sydney. -Claude</p>
+            <p class="level">Party at level 4.</p>
+          </div>
+
+          <div class="scene">
+            <h3>Orphelia's Tavern</h3>
+            <ul>
+              <li>No idea what kind of tree Khozi turned into, but he did so just by sitting around many critters.</li>
+              <li>Jeros's little brother is staying with Orphelia now in her tavern.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>Out at Sea</h3>
+            <ul>
+              <li>We went to take a ship named The Sea Dragon.</li>
+              <li>We took the ship and killed the captain during the fight.</li>
+              <li>7-8 surrendered.</li>
+              <li>We have a new baby great white shark named Sydney.</li>
+              <li>We earned 390 gp each.</li>
+            </ul>
+          </div>
+
+          <p class="endnote">Ended session at level 4.</p>
+
+          <details class="markup">
+            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
+            <div class="markup-body">
+              <p class="markup-note">Copy this and paste straight into Discord.</p>
+<pre id="md-7">## Session 7: Taking the Sea Dragon
+> **TL;DR:** Captured the ship The Sea Dragon, killed her captain, and took the survivors' surrender. Earned 390 gp each and gained a baby great white shark named Sydney. -Claude
+> **Level:** 4
+
+### Orphelia's Tavern
+- No idea what kind of tree Khozi turned into, but he did so just by sitting around many critters.
+- Jeros's little brother is staying with Orphelia now in her tavern.
+
+### Out at Sea
+- We went to take a ship named The Sea Dragon.
+- We took the ship and killed the captain during the fight.
+- 7-8 surrendered.
+- We have a new baby great white shark named Sydney.
+- We earned 390 gp each.
+
+*Ended session at level 4.*</pre>
+              <button class="copy" type="button" data-target="md-7" onclick="copyMarkup(this)">Copy markup</button>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+      <details class="session">
+        <summary><span class="summary-text"><span class="ord">Session VIII</span><span class="title">What the Tea Revealed</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+
+          <div class="tldr">
+            <span class="tldr-label">TL;DR</span>
+            <p>Lobbied the pirate lord council to back Jeros and fell flat. At the Tea House, learned the tea can surface Jeros's lost memories of his crime, with Emilia able to act as a witness, and saw that Sir Darahan had taken him away under a spell. -Claude</p>
+            <p class="level">Party at level 4.</p>
+          </div>
+
+          <div class="scene">
+            <h3>Out at Sea</h3>
+            <ul>
+              <li>Sydney and Prickly went on their first hunt.</li>
+              <li>Hella caught fish.</li>
+              <li>Jeros caught prick.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>At the Docks</h3>
+            <ul>
+              <li>Prickly made earrings from his shark teeth and silver fish hooks. After that they shared their first kiss. He rolled low.</li>
+              <li>We received word we need to go to the different pirate lords to advocate for Jeros.</li>
+              <li>The eight pirate lord council members:
+                <ul class="sub">
+                  <li>Capitan Del Herro Nochas</li>
+                  <li>Capitan Emilia Von Drakkenberg</li>
+                  <li>Kairi Namujima</li>
+                  <li>The Gentleman Pirate</li>
+                  <li>Pirate Capitan Osiris</li>
+                  <li>Orphilia</li>
+                  <li>Pirate Prince Darathan the Black</li>
+                  <li>Gozlock</li>
+                </ul>
+              </li>
+              <li>We didn't really do well in doing so given we didn't really have much information, and it's Jeros.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>Tea House</h3>
+            <ul>
+              <li>Jeros was mad at his dad for not letting him go out to sea. Darathan the Black decided to take him on board his crew. After/during negotiations Jeros lost his memory, but as time passed he realized he committed his crime.</li>
+              <li>Eris explains that her sword gave her some insight.</li>
+              <li>We learn that Emilia Van Drakenburg, with the use of the tea, can peer into his mind and potentially act as a witness.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>Tavern</h3>
+            <ul>
+              <li>Orphelia fetches for her at her tavern.</li>
+              <li>Hella goes to bathe and get her hair done by the Gentleman Pirate.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>The Memories</h3>
+            <ul>
+              <li>Jeros was in the compound.</li>
+              <li>A woman entered, the woman behind their point of view, and she did some witchcraft. It was the same person at Sir Darahan's side when they first went into the Tavern.</li>
+              <li>They witness Sir Darahan leave with Jeros while Jeros was incapacitated under a spell. While in the spell it felt as though there was a trap door leading to a large creature surrounded by screams.</li>
+              <li>After getting to their destination, Jeros's memories came back.</li>
+              <li>No news about the parrot.</li>
+            </ul>
+          </div>
+
+          <p class="endnote">Ended session at level 4.</p>
+
+          <details class="markup">
+            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
+            <div class="markup-body">
+              <p class="markup-note">Copy this and paste straight into Discord.</p>
+<pre id="md-8">## Session 8: What the Tea Revealed
+> **TL;DR:** Lobbied the pirate lord council to back Jeros and fell flat. At the Tea House, learned the tea can surface Jeros's lost memories of his crime, with Emilia able to act as a witness, and saw that Sir Darahan had taken him away under a spell. -Claude
+> **Level:** 4
+
+### Out at Sea
+- Sydney and Prickly went on their first hunt.
+- Hella caught fish.
+- Jeros caught prick.
+
+### At the Docks
+- Prickly made earrings from his shark teeth and silver fish hooks. After that they shared their first kiss. He rolled low.
+- We received word we need to go to the different pirate lords to advocate for Jeros.
+- The eight pirate lord council members:
+  - Capitan Del Herro Nochas
+  - Capitan Emilia Von Drakkenberg
+  - Kairi Namujima
+  - The Gentleman Pirate
+  - Pirate Capitan Osiris
+  - Orphilia
+  - Pirate Prince Darathan the Black
+  - Gozlock
+- We didn't really do well in doing so given we didn't really have much information, and it's Jeros.
+
+### Tea House
+- Jeros was mad at his dad for not letting him go out to sea. Darathan the Black decided to take him on board his crew. After/during negotiations Jeros lost his memory, but as time passed he realized he committed his crime.
+- Eris explains that her sword gave her some insight.
+- We learn that Emilia Van Drakenburg, with the use of the tea, can peer into his mind and potentially act as a witness.
+
+### Tavern
+- Orphelia fetches for her at her tavern.
+- Hella goes to bathe and get her hair done by the Gentleman Pirate.
+
+### The Memories
+- Jeros was in the compound.
+- A woman entered, the woman behind their point of view, and she did some witchcraft. It was the same person at Sir Darahan's side when they first went into the Tavern.
+- They witness Sir Darahan leave with Jeros while Jeros was incapacitated under a spell. While in the spell it felt as though there was a trap door leading to a large creature surrounded by screams.
+- After getting to their destination, Jeros's memories came back.
+- No news about the parrot.
+
+*Ended session at level 4.*</pre>
+              <button class="copy" type="button" data-target="md-8" onclick="copyMarkup(this)">Copy markup</button>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+      <details class="session">
+        <summary><span class="summary-text"><span class="ord">Session IX</span><span class="title">Beneath the Tide Pool</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+
+          <div class="tldr">
+            <span class="tldr-label">TL;DR</span>
+            <p>Orphelia sends the party down a new tide pool into a cavern network. They parley with rat-humanoids mining a hazardous green rock under Sloppy Crookshanks, then trail dark elves to Darahan the Black's slave-mining lair, staffed by the enchantress who erased Jeros's memories. After a messy fight and a spider-form scouting run, they retreat to plan and seek Orphelia's counsel. -Claude</p>
+            <p class="level">Party at level 5.</p>
+          </div>
+
+          <div class="scene">
+            <h3>At the Tavern</h3>
+            <ul>
+              <li>The party received a mission from Orphelia to investigate a suspicious tide pool (not seen before).</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>Rats in the Pool</h3>
+            <ul>
+              <li>The party discovers the large tide pool is giving access to a trap door.</li>
+              <li>The party investigates to find a secret mining operation of rat-like humanoids.</li>
+              <li>After a tense, hesitant agreement to talk, pushed for by Prickly due to the cuteness of the rat-like humanoids (blame him if all goes wrong), the group finds this operation is run by a commander named Sloppy Crookshanks (Ratman leader).</li>
+              <li>They are after this green shining rock, which seems to have very hazardous properties to the touch and, when consumed, gives the rats powerful abilities.</li>
+              <li>Sloppy Crookshanks mentions others being in the cavern network.
+                <ul class="sub">
+                  <li>Some barbarians that are extremely confrontational.</li>
+                  <li>As well as some shady dark elves.</li>
+                  <li>Both seem to be somewhat of an uneasy annoyance for Sloppy Crookshanks, but not yet a problem given their undisclosed location.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>On the Dark Elves' Trail</h3>
+            <ul>
+              <li>The party agrees to investigate these elves, assuming they are part of the same faction as Prince Darahan the Black.</li>
+              <li>Going through the network of tunnels, the party sneaks by most guards.</li>
+              <li>They pass by a pool seemingly infected with dead bodies.
+                <ul class="sub">
+                  <li>Later discovered to be the domain of a very large basilisk or other large serpent-like creature (a beast technically, but can't be tamed by Prickly).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>Battle</h3>
+            <ul>
+              <li>The party fights and kills some guards, leading others away from the battle with some odd tactics and DM mercy.</li>
+              <li>The snake comes out to say hi. Prickly offers the bodies of the freshly dead dark elves as, uh, a peace offering.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>Investigation of the Dark Elf Lair</h3>
+            <ul>
+              <li>Prickly investigates the lair in spider form and reports a slave mining operation with a frightening number of slaves and soldiers working for Darahan the Black. Darahan is on the 2nd level in some office, along with the enchantress now responsible for the erasing of Jeros's memories and his conviction for the stolen parrot.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>The Verdict</h3>
+            <ul>
+              <li>The party agrees to back away safely for now to avoid death and formulate a better plan of attack or action, eventually hoping to seek guidance from Orphelia.</li>
+              <li>On the way back, the party prepares to investigate the barbarians in the caverns.</li>
+              <li>The session ends with a long rest due to the level up.</li>
+            </ul>
+          </div>
+
+          <p class="endnote">Ended session at level 5.</p>
+
+          <details class="markup">
+            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
+            <div class="markup-body">
+              <p class="markup-note">Copy this and paste straight into Discord.</p>
+<pre id="md-9">## Session 9: Beneath the Tide Pool
+&gt; **TL;DR:** Orphelia sends the party down a new tide pool into a cavern network. They parley with rat-humanoids mining a hazardous green rock under Sloppy Crookshanks, then trail dark elves to Darahan the Black's slave-mining lair, staffed by the enchantress who erased Jeros's memories. After a messy fight and a spider-form scouting run, they retreat to plan and seek Orphelia's counsel. -Claude
+&gt; **Level:** 5
+
+### At the Tavern
+- The party received a mission from Orphelia to investigate a suspicious tide pool (not seen before).
+
+### Rats in the Pool
+- The party discovers the large tide pool is giving access to a trap door.
+- The party investigates to find a secret mining operation of rat-like humanoids.
+- After a tense, hesitant agreement to talk, pushed for by Prickly due to the cuteness of the rat-like humanoids (blame him if all goes wrong), the group finds this operation is run by a commander named Sloppy Crookshanks (Ratman leader).
+- They are after this green shining rock, which seems to have very hazardous properties to the touch and, when consumed, gives the rats powerful abilities.
+- Sloppy Crookshanks mentions others being in the cavern network.
+  - Some barbarians that are extremely confrontational.
+  - As well as some shady dark elves.
+  - Both seem to be somewhat of an uneasy annoyance for Sloppy Crookshanks, but not yet a problem given their undisclosed location.
+
+### On the Dark Elves' Trail
+- The party agrees to investigate these elves, assuming they are part of the same faction as Prince Darahan the Black.
+- Going through the network of tunnels, the party sneaks by most guards.
+- They pass by a pool seemingly infected with dead bodies.
+  - Later discovered to be the domain of a very large basilisk or other large serpent-like creature (a beast technically, but can't be tamed by Prickly).
+
+### Battle
+- The party fights and kills some guards, leading others away from the battle with some odd tactics and DM mercy.
+- The snake comes out to say hi. Prickly offers the bodies of the freshly dead dark elves as, uh, a peace offering.
+
+### Investigation of the Dark Elf Lair
+- Prickly investigates the lair in spider form and reports a slave mining operation with a frightening number of slaves and soldiers working for Darahan the Black. Darahan is on the 2nd level in some office, along with the enchantress now responsible for the erasing of Jeros's memories and his conviction for the stolen parrot.
+
+### The Verdict
+- The party agrees to back away safely for now to avoid death and formulate a better plan of attack or action, eventually hoping to seek guidance from Orphelia.
+- On the way back, the party prepares to investigate the barbarians in the caverns.
+- The session ends with a long rest due to the level up.
+
+*Ended session at level 5.*</pre>
+              <button class="copy" type="button" data-target="md-9" onclick="copyMarkup(this)">Copy markup</button>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+    </section>
+
+    <p class="foot">Sessions III through IX are fully logged. Sessions I and II were sailed without notes.</p>
+  </main>
+
+<script>
+  function copyMarkup(btn){
+    var text = document.getElementById(btn.getAttribute('data-target')).textContent;
+    var done = function(){
+      btn.textContent = 'Copied to log';
+      setTimeout(function(){ btn.textContent = 'Copy markup'; }, 1800);
+    };
+    if (navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(text, done); });
+    } else {
+      fallback(text, done);
+    }
+  }
+  function fallback(text, done){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly','');
+    ta.style.position = 'fixed'; ta.style.top = '-9999px';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); done(); } catch(e){}
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>
