@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Giya Campaign</title>
+<title>Echoes of the Enclave</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
-    --abyss:#0a1a1f;
-    --abyss-bottom:#071519;
-    --panel:#0f2930;
-    --panel-edge:rgba(201,163,92,.22);
-    --brass:#c9a35c;
-    --brass-bright:#e7ca8c;
-    --bone:#ece1c8;
-    --seafoam:#83a7a0;
-    --rule:rgba(201,163,92,.28);
-    --code-bg:#081317;
+    --abyss:#1b142f;
+    --abyss-bottom:#130e23;
+    --panel:#261d42;
+    --panel-edge:rgba(213,196,150,.22);
+    --brass:#cdb488;
+    --brass-bright:#ecdcb2;
+    --bone:#ece4d0;
+    --seafoam:#a794c4;
+    --rule:rgba(213,196,150,.28);
+    --code-bg:#170f2b;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
   body{
     min-height:100vh;
-    background:radial-gradient(120% 80% at 50% -10%, #12333a 0%, var(--abyss) 42%, var(--abyss-bottom) 100%);
+    background:radial-gradient(120% 80% at 50% -10%, #362a5e 0%, var(--abyss) 42%, var(--abyss-bottom) 100%);
     color:var(--bone);
     font-family:"EB Garamond",Georgia,serif;
     font-size:18px;line-height:1.6;
@@ -59,7 +59,7 @@
   .log{margin-top:3.4rem;display:flex;flex-direction:column;gap:14px}
   details.session{
     border:1px solid var(--panel-edge);border-radius:3px;
-    background:linear-gradient(180deg,var(--panel),#0c232a);
+    background:linear-gradient(180deg,var(--panel),#1e1737);
     overflow:hidden;
   }
   details.session > summary{
@@ -69,7 +69,7 @@
     transition:background .2s ease;user-select:none;
   }
   details.session > summary::-webkit-details-marker{display:none}
-  details.session > summary:hover{background:rgba(201,163,92,.06)}
+  details.session > summary:hover{background:rgba(213,196,150,.06)}
   details.session > summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
   .summary-text{flex:1;min-width:0}
   .ord{
@@ -88,11 +88,11 @@
   details.session[open] > summary .chev{transform:rotate(180deg)}
 
   /* Empty sessions */
-  details.empty .title{color:rgba(236,225,200,.4)}
+  details.empty .title{color:rgba(236,228,208,.4)}
   .empty-body{padding:0 1.3rem 1.3rem;color:var(--seafoam);font-style:italic;font-size:.92rem}
 
   /* Session body */
-  .session-body{padding:.4rem 1.3rem 1.5rem;border-top:1px solid rgba(201,163,92,.12)}
+  .session-body{padding:.4rem 1.3rem 1.5rem;border-top:1px solid rgba(213,196,150,.12)}
   .scene{margin-top:1.6rem}
   .scene:first-child{margin-top:.6rem}
   .scene h3{
@@ -104,7 +104,7 @@
   .scene ul{list-style:none;margin:.3rem 0 0;padding:0}
   .scene li{
     position:relative;padding:.26rem 0 .26rem 1.35rem;
-    border-bottom:1px solid rgba(201,163,92,.08);
+    border-bottom:1px solid rgba(213,196,150,.08);
   }
   .scene li:last-child{border-bottom:none}
   .scene li::before{content:"";position:absolute;left:.2rem;top:1.02em;width:5px;height:5px;background:var(--brass);transform:rotate(45deg)}
@@ -114,14 +114,14 @@
   .scene ul.sub li::before{top:.92em;width:4px;height:4px;background:var(--seafoam);opacity:.85}
   .endnote{
     margin-top:1.8rem;padding-top:.9rem;
-    border-top:1px solid rgba(201,163,92,.14);
+    border-top:1px solid rgba(213,196,150,.14);
     font-family:"IM Fell English",serif;font-style:italic;
     color:var(--brass);font-size:.95rem;text-align:right;
   }
   .tldr{
     margin:.4rem 0 1.9rem;padding:.95rem 1.1rem;
     border-left:2px solid var(--brass);
-    background:rgba(201,163,92,.06);border-radius:0 3px 3px 0;
+    background:rgba(213,196,150,.06);border-radius:0 3px 3px 0;
   }
   .tldr .tldr-label{
     display:block;font-family:"IM Fell English SC",serif;
@@ -132,6 +132,52 @@
   .tldr .level{margin-top:.55rem;font-style:italic;color:var(--brass);font-size:.9rem}
   .verse{margin:.5rem 0 .3rem 1.35rem;padding:.55rem 0 .55rem 1.1rem;border-left:2px solid var(--seafoam);font-style:italic;color:var(--bone)}
   .verse p{margin:0;line-height:1.75}
+
+  /* Lexicon tables */
+  .lex{width:100%;border-collapse:collapse;margin:.6rem 0 .2rem;font-size:.95rem}
+  .lex th{
+    font-family:"IM Fell English SC",serif;font-weight:400;
+    letter-spacing:.16em;text-transform:uppercase;font-size:.66rem;
+    color:var(--seafoam);text-align:left;
+    padding:.4rem .7rem .4rem 0;border-bottom:1px solid var(--rule);
+  }
+  .lex td{
+    padding:.42rem .7rem .42rem 0;vertical-align:top;
+    border-bottom:1px solid rgba(213,196,150,.08);
+  }
+  .lex tr:last-child td{border-bottom:none}
+  .lex td:first-child{color:var(--brass-bright);font-style:italic;white-space:nowrap}
+  .lex.plain td:first-child{font-style:normal;white-space:normal}
+
+  /* Character database */
+  .grouphead{
+    font-family:"IM Fell English SC",serif;font-weight:400;
+    font-size:1.35rem;color:var(--brass-bright);
+    margin:2.2rem 0 .2rem;padding-bottom:.3rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .grouphead:first-child{margin-top:.8rem}
+  .scene h3 .role{
+    font-family:"EB Garamond",serif;font-size:.85rem;
+    font-style:italic;color:var(--seafoam);font-weight:400;
+  }
+  details.char{
+    border:1px solid rgba(213,196,150,.12);border-radius:3px;
+    background:rgba(213,196,150,.03);margin-top:10px;overflow:hidden;
+  }
+  details.char > summary{
+    list-style:none;cursor:pointer;
+    padding:.65rem .9rem;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    transition:background .2s ease;user-select:none;
+  }
+  details.char > summary::-webkit-details-marker{display:none}
+  details.char > summary:hover{background:rgba(213,196,150,.06)}
+  details.char > summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
+  details.char > summary h3{margin:0;font-size:1.15rem;flex-wrap:wrap}
+  details.char .chev{font-size:1.1rem}
+  details.char[open] > summary .chev{transform:rotate(180deg)}
+  .char-body{padding:.1rem .9rem .85rem}
 
   /* Markup disclosure (nested) */
   details.markup{
@@ -147,14 +193,14 @@
     transition:background .2s ease;
   }
   details.markup > summary::-webkit-details-marker{display:none}
-  details.markup > summary:hover{background:rgba(201,163,92,.07)}
+  details.markup > summary:hover{background:rgba(213,196,150,.07)}
   details.markup > summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
   details.markup[open] > summary .chev{transform:rotate(180deg)}
   .markup-body{padding:0 1.1rem 1.1rem}
   .markup-note{font-size:.86rem;color:var(--seafoam);font-style:italic;margin:.1rem 0 .9rem}
   pre{
-    margin:0;background:#05101300;background-color:#050f12;
-    border:1px solid rgba(201,163,92,.16);border-radius:3px;
+    margin:0;background-color:#120b21;
+    border:1px solid rgba(213,196,150,.16);border-radius:3px;
     padding:1rem 1.1rem;overflow:auto;color:var(--bone);
     font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
     font-size:.8rem;line-height:1.55;white-space:pre;
@@ -180,104 +226,253 @@
 </head>
 <body>
   <main class="sheet">
-    <p class="eyebrow">Dungeon Master: Froggy</p>
-    <h1 class="masthead">Giya Campaign</h1>
+    <p class="eyebrow">Dungeon Master: Lucia</p>
+    <h1 class="masthead">Echoes of the Enclave</h1>
     <div class="divider"><span class="line"></span><span class="mark">&#9670;</span><span class="line"></span></div>
     <p class="lede">If you find inaccuracies, blame Web</p>
 
     <section class="log">
 
       <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session I</span><span class="title">The Carnival (DM Notes)</span></span><span class="chev">&#9662;</span></summary>
+        <summary><span class="summary-text"><span class="ord">Appendix</span><span class="title">Characters</span></span><span class="chev">&#9662;</span></summary>
         <div class="session-body">
 
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>The party's first night out, a visit to the Dark Fire Circus that turns to chaos when goblin raiders storm the Big Top. Knights of L'Equip cover the retreat, and the party glimpses a massive, red-eyed goblin leader before choosing whether to leave with Knight Commander Joseph Kiliman or chase the goblins and their prisoners. -Claude</p>
-            <p class="level">Party at level 1.</p>
-          </div>
+          <p class="grouphead">Player Characters</p>
 
-          <div class="scene">
-            <h3>The Dark Fire Circus</h3>
+          <details class="char scene">
+            <summary><h3>Sebastian <span class="role">&mdash; Half-Elf Sorcerer / Rogue (Storm Sorcery) &middot; played by SerpentDenial</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
             <ul>
-              <li>The party starts at the Dark Fire Circus, following a brief introduction of how and why each character ended up there, then eases in with gambling and carnival games.</li>
-              <li>The attractions and their proprietors:
-                <ul class="sub">
-                  <li>Food from the Nobleshnap brothers of the GooeyPork Tavern franchise</li>
-                  <li>Fortune telling by Jyasinta Helvitar</li>
-                  <li>Ring Da BellZ, run by Azlugg the Mighty</li>
-                  <li>Target Practice, run by Grizzle Tooth Snagger</li>
-                  <li>Trissinda's Tea Room, serving tea with an optional leaf reading</li>
-                  <li>Shipple Shabangs' Find the Fairy Cup game</li>
-                  <li>The Wheel of Fortune, run by Theradeas Toplledoppolos, one of the Toplledoppolos brothers who own the Gooey Pork Tavern chain</li>
-                  <li>Dr Simon Corvus's potion stall, whimsical potions from a man who seems a little off</li>
-                </ul>
-              </li>
+              <li>Warden Kin; nomadic, mobile combatant.</li>
+              <li>Grew up in the Crystal Ward. Rich farmers.</li>
+              <li>Was not in the Crystal Ward when the dome formed, and so got locked out because of the bubble.</li>
+              <li>Lived as a forest hermit during the dark days.</li>
+              <li>After the darkness, he investigated the bubble of the Crystal Ward.</li>
+              <li>During the later stages of the investigation, he joined the Warden Kin to help the investigation.</li>
+              <li>Very nomadic.</li>
+              <li>Repairs his own clothing, and has shabby noble garbs as a result of his history and lifestyle.</li>
+              <li>Very charming (allegedly).</li>
+              <li>Very mobile combat abilities.</li>
+              <li>The only thing that is not dirty is his Warden Kin brooch.</li>
+              <li>Currently keeps Nimbus under his care.</li>
             </ul>
-          </div>
+            </div>
+          </details>
 
-          <div class="scene">
-            <h3>The Big Top</h3>
+          <details class="char scene">
+            <summary><h3>Niamh "Flamme" Callahan <span class="role">&mdash; Human Sorcerer (Draconic Sorcery) &middot; played by pabaptista</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
             <ul>
-              <li>Once the party tires of the games, they are ushered into the Big Top: clowns, animal tamers, acrobats, and the wild magics of Elbafore Critterspeaker and his fish in a bubble, Jeramiah.</li>
-              <li>Elbafore announces the arrival of Lady Alrina Kazadina, a powerful druid who speaks to animals to entertain the crowd.</li>
+              <li>Tanky sorcerer from Eberron; carries an aberrant dragonmark.</li>
+              <li>From Sharn, of house Darkanon.</li>
+              <li>After cleaning up the corruption in Sharn, all the houses became very apprehensive towards any further corruption, and likely towards the Amaroon Enclave.</li>
+              <li>In order to investigate their own mysterious wasteland, they sent Niamh's father to investigate every year since.</li>
+              <li>On the last mission, he went missing. Niamh's father is named Nemo.</li>
+              <li>Niamh received a very cryptic message to go and look for him in the Seven Hills.</li>
             </ul>
-          </div>
+            </div>
+          </details>
 
-          <div class="scene">
-            <h3>The Raid</h3>
+          <details class="char scene">
+            <summary><h3>Callista Lehane <span class="role">&mdash; Changeling Rogue (Arcane Trickster) &middot; played by EgyptianEnchantress6891</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
             <ul>
-              <li>Toward the end of the show, noises rise outside and the Big Top is swarmed by goblin raiders. The party and a few NPCs either flee or stand and fight.</li>
-              <li>If Lady Alrina falls, her mammoth turns feral and attacks anyone nearby unless Elbafore can calm it.</li>
-              <li>The party is nearly overrun until knights from the nearby bastion of L'Equip arrive to cover their retreat.</li>
+              <li>Monster hunter from Eberron.</li>
+              <li>Her land is ruled by three hags called the Daughters of Sora Kell, in the Shadow Marshes.</li>
+              <li>It's a land of monsters. Her family was very powerful diplomatically and owned a magic apothecary.</li>
+              <li>However, they were pushed out of power by the hags. Now they can't use magic and are under surveillance.</li>
+              <li>She had a premonition of the cloud and of the mushroom, and headed off to see what that dream meant.</li>
+              <li>She is still somewhat in touch with her family.</li>
+              <li>She makes her way through Droaam, and as she travels she learns her family's magic.</li>
+              <li>While traveling via train during her first year traveling, she meets in Sharn with a noble family to use the portal to Waterdeep. She met the previous party of Waterdeep.</li>
+              <li>In Waterdeep she was accompanied by Linus to Lissabon.</li>
+              <li>She now works as a monster hunter.</li>
             </ul>
-          </div>
+            </div>
+          </details>
 
-          <div class="scene">
-            <h3>The Escape</h3>
+          <details class="char scene">
+            <summary><h3>Vhaeril "Ash" <span class="role">&mdash; Tiefling Sorcerer (Wild Magic Sorcery) &middot; played by Maelkar</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
             <ul>
-              <li>As they leave, they glimpse Jyasinta teleporting herself to safety, and see the goblin leader: massive for a goblin, glowing red eyes, screaming orders to his subordinates.</li>
-              <li>The party can either leave with Knight Commander Joseph Kiliman or chase the goblins, who are making off with prisoners.</li>
+              <li>Nomadic hermit.</li>
+              <li>Born and grew up on the Diamond Shore (now the Shadow Shores).</li>
+              <li>After the event she became infused with magic and began growing horns on her head. She has a weird pressure in her head.</li>
+              <li>As a result of feeling oppressed based on her wild magic sorcery and her horns, she became a nomadic hermit.</li>
+              <li>She comes to find out Waterdeep is not affected by the boom, and is looking to travel there so she doesn't feel discriminated against.</li>
+              <li>She's come back as a result of a message to meet up with some of the other members of the party.</li>
             </ul>
-          </div>
+            </div>
+          </details>
 
-          <p class="endnote">Ended session at level 1.</p>
+          <details class="char scene">
+            <summary><h3>Nimbus <span class="role">&mdash; Gnome Cleric / Wizard (School of Enchantment) &middot; played by Web (PainfulW3B)</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Raised in an isolated, bioluminescent forest village.</li>
+              <li>Was banished after his little brother Lembas went missing on a dare and Nimbus confessed the truth to his parents.</li>
+              <li>Wandering the dangerous woods, he encountered a group of adventurers called the Goldblooms, who had rescued Lembas.</li>
+              <li>In gratitude, Nimbus joined their journey to escape the realm, traveling through perilous forests and arid deserts filled with hostile Vurmi.</li>
+              <li>An enigmatic figure known as The Pharaoh directed them through a stone gateway.</li>
+              <li>Crossing the threshold separated Nimbus from his party and hurled him through time and space, briefly landing in the bedroom of a powerful "goddess" child who gifted him a coat and a light-up heart pendant before ultimately dropping him into his next destination.</li>
+              <li>He was teleported across space and time to the Shadow Shores, where he found shelter with a local family who cared for him and adored his unique nature as an adorable, walking night light that brought comfort through the long night.</li>
+              <li>As the family faced growing scrutiny and unwanted investigations from PIDE due to the attention Nimbus attracted, they moved away from the Shadow Shores.</li>
+              <li>To protect the family, Nimbus agreed to transfer into the care of Sebastian, a traveling noble, where he remains under his keep.</li>
+            </ul>
+            </div>
+          </details>
 
-          <details class="markup">
-            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
-            <div class="markup-body">
-              <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-1">## Session 1: The Carnival (DM Notes)
-&gt; **TL;DR:** The party's first night out, a visit to the Dark Fire Circus that turns to chaos when goblin raiders storm the Big Top. Knights of L'Equip cover the retreat, and the party glimpses a massive, red-eyed goblin leader before choosing whether to leave with Knight Commander Joseph Kiliman or chase the goblins and their prisoners. -Claude
-&gt; **Level:** 1
+          <p class="grouphead">Factions</p>
 
-### The Dark Fire Circus
-- The party starts at the Dark Fire Circus, following a brief introduction of how and why each character ended up there, then eases in with gambling and carnival games.
-- The attractions and their proprietors:
-  - Food from the Nobleshnap brothers of the GooeyPork Tavern franchise
-  - Fortune telling by Jyasinta Helvitar
-  - Ring Da BellZ, run by Azlugg the Mighty
-  - Target Practice, run by Grizzle Tooth Snagger
-  - Trissinda's Tea Room, serving tea with an optional leaf reading
-  - Shipple Shabangs' Find the Fairy Cup game
-  - The Wheel of Fortune, run by Theradeas Toplledoppolos, one of the Toplledoppolos brothers who own the Gooey Pork Tavern chain
-  - Dr Simon Corvus's potion stall, whimsical potions from a man who seems a little off
+          <details class="char scene">
+            <summary><h3>The Amaroon Enclave</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Fell in Waterdeep five years ago, the same evening as the Event; current location unknown.</li>
+              <li>Previously led by Etrian, who was killed by the previous party of Waterdeep.</li>
+              <li>Old rumours about the Enclave, its connections beyond Faer&ucirc;n, and the source of the Longest Night have begun to surface once more.</li>
+            </ul>
+            </div>
+          </details>
 
-### The Big Top
-- Once the party tires of the games, they are ushered into the Big Top: clowns, animal tamers, acrobats, and the wild magics of Elbafore Critterspeaker and his fish in a bubble, Jeramiah.
-- Elbafore announces the arrival of Lady Alrina Kazadina, a powerful druid who speaks to animals to entertain the crowd.
+          <details class="char scene">
+            <summary><h3>The Warden Kin</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>A sister faction of the Amaroon Enclave, born of a distaste for the actions of the Amaroon Enclave.</li>
+              <li>Very involved with the community and eager to improve their reputation.</li>
+              <li>Sebastian is a member; his brooch is the one clean thing he owns.</li>
+            </ul>
+            </div>
+          </details>
 
-### The Raid
-- Toward the end of the show, noises rise outside and the Big Top is swarmed by goblin raiders. The party and a few NPCs either flee or stand and fight.
-- If Lady Alrina falls, her mammoth turns feral and attacks anyone nearby unless Elbafore can calm it.
-- The party is nearly overrun until knights from the nearby bastion of L'Equip arrive to cover their retreat.
+          <details class="char scene">
+            <summary><h3>PIDE <span class="role">&mdash; Protection of Intellect and Data Enclave</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Works similar to the CIA: it oversees the flow of any information and does all the investigating.</li>
+              <li>Claims its surveillance and restrictions are necessary to keep the population safe from the magical aftermath of the Longest Night.</li>
+              <li>Scarred objects are disappearing into official custody, and people who ask the wrong questions are watched, discouraged, or simply vanish from public view.</li>
+              <li>Its investigations into Nimbus's host family drove them from the Shadow Shores.</li>
+            </ul>
+            </div>
+          </details>
 
-### The Escape
-- As they leave, they glimpse Jyasinta teleporting herself to safety, and see the goblin leader: massive for a goblin, glowing red eyes, screaming orders to his subordinates.
-- The party can either leave with Knight Commander Joseph Kiliman or chase the goblins, who are making off with prisoners.
+          <details class="char scene">
+            <summary><h3>The Orders Gauntlet</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Operates the international port in Arr&aacute;bida.</li>
+            </ul>
+            </div>
+          </details>
 
-*Ended session at level 1.*</pre>
-              <button class="copy" type="button" data-target="md-1" onclick="copyMarkup(this)">Copy markup</button>
+          <details class="char scene">
+            <summary><h3>The Emerald Enclave</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Based in Arr&aacute;bida.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Warden Enclave</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Based in Arr&aacute;bida.</li>
+            </ul>
+            </div>
+          </details>
+
+          <p class="grouphead">NPCs</p>
+
+          <details class="char scene">
+            <summary><h3>Etrian <span class="role">&mdash; previous leader of the Amaroon Enclave</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>The main antagonist of the previous campaign, and the previous leader of the Amaroon Enclave.</li>
+              <li>Killed by the previous party of Waterdeep.</li>
+              <li>The kill switch bomb that caused the Event was his device; Zircon has its blueprint.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Nemo <span class="role">&mdash; Niamh's father</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Sent from Sharn every year to investigate a mysterious wasteland.</li>
+              <li>Went missing on his last mission; the cryptic message pointing Niamh to the Seven Hills concerns him.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Lembas <span class="role">&mdash; Nimbus's little brother</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Went missing on a dare in their home forest; Nimbus's confession of the truth led to his banishment.</li>
+              <li>Was rescued by the Goldblooms.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The "Goddess" Child</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>A powerful child in whose bedroom Nimbus briefly landed while hurled through time and space.</li>
+              <li>Gifted Nimbus a coat and a light-up heart pendant before dropping him into his next destination.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Shadow Shores Family</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Sheltered Nimbus after his arrival and adored him as an adorable, walking night light through the long night.</li>
+              <li>Drew growing scrutiny and unwanted PIDE investigations from the attention Nimbus attracted, and moved away; Nimbus passed into Sebastian's care to protect them.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Linus</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Accompanied Callista from Waterdeep to Lissabon.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Daughters of Sora Kell <span class="role">&mdash; three hags</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Rule Callista's homeland.</li>
+              <li>Pushed Callista's family out of power; the family now cannot use magic and is under surveillance.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Zircon</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Has the blueprint for the kill switch device that caused the Event.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Previous Party of Waterdeep</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Met Callista in Sharn while she was arranging portal travel to Waterdeep.</li>
+              <li>Killed Etrian, the previous leader of the Amaroon Enclave.</li>
+            </ul>
             </div>
           </details>
 
@@ -285,576 +480,106 @@
       </details>
 
       <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session II</span><span class="title">Jackson the Bull Kills Goblins (DM Notes)</span></span><span class="chev">&#9662;</span></summary>
+        <summary><span class="summary-text"><span class="ord">Session Zero</span><span class="title">The Longest Night</span></span><span class="chev">&#9662;</span></summary>
         <div class="session-body">
 
           <div class="tldr">
             <span class="tldr-label">TL;DR</span>
-            <p>Chasing the goblin shaman to free the circus prisoners, the party befriends a bull named Jackson who tears through the goblin camp. They rescue Elbafore and learn the sacrifices aim to summon not a spider god but one of The Dark Pantheon, the red giant watching Lance, later known as Volmol. Ezekiel meets The Collector on the road home, and after the shaman falls, Jeros nearly wipes the party with its staff. Back at the fortress, they later expose and kill the treacherous Jafar, with Hella (Red Jasmin) landing the final blow, and Eris claims her first sword shard. -Claude</p>
-            <p class="level">Party at level 2.</p>
-          </div>
-
-          <div class="scene">
-            <h3>Before the Hunt</h3>
-            <ul>
-              <li>After Session 1, the party decides to chase down the goblin shaman to save any prisoners taken from the circus.</li>
-              <li>Each of them experiences a vision or dream involving a parent, a loved one, or a darker entity entirely.</li>
-              <li>Before leaving, they can speak with Duchess Marine, who hints that all is not what it seems in L'Equip. Talking with several NPCs turns up clues about who and what is causing trouble in the fortress.</li>
-              <li>Just before reaching the camp, the party's druid, Prickly Khactuz, befriended a bull named Jackson.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>The Goblin Camp</h3>
-            <ul>
-              <li>The party approaches the goblin camp and is thrown straight into a fight as goblins swarm them. Jackson the bull proves a formidable asset, slaying many goblins himself.</li>
-              <li>After the battle, they can rescue Elbafore from a nearby cave, who helps heal the party before they move on to face the shaman.</li>
-              <li>They have a chance to save some of the carnival folk.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>The Shaman</h3>
-            <ul>
-              <li>A vision reveals what the goblins are trying to summon with their sacrifices. It is not the spider god everyone assumed, but one of The Dark Pantheon: the god watching Lance specifically, a large, red, menacing figure peering down from the clouds. The party later identified it in Session 3 as Volmol.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>The Journey Back</h3>
-            <ul>
-              <li>Camping on the way back, Ezekiel is visited by a mysterious woman offering instant fame and fortune in exchange for his eternal soul. When he refuses, she reveals herself as The Collector, a nemesis-like figure for the party.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>Aftermath</h3>
-            <ul>
-              <li>The party succeeded in killing the goblin shaman.</li>
-              <li>Jeros picked up the shaman's staff and waved it around, nearly causing a total party kill and coming close to killing Lance and Eris. His chaotic streak here set the tone for how the party treated Jeros from then on.</li>
-              <li>They also took the ritual book, though the DM's note trails off on what Lance did with it.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>Session 2.5 (Red Jasmin and Jafar Scene)</h3>
-            <ul>
-              <li><em>These notes are written by Web, so they are exactly how this all went down. In no way are any of these details incorrect. (insert sarcasm)</em></li>
-              <li>The party had a brief conversation with Jafar at the end of Session 1, where he tried to use his charisma on Hella and failed, leaving the party sketched out by him.</li>
-              <li>After Session 2, the party gathered more evidence that he is guilty of treachery and searched the castle for him, finding him in the throne room attacking Duchess Marine. The party killed him, with Hella (Red Jasmin) landing the final blow while Prickly, in parrot form, forced crackers into his mouth, taunting him: "Do you want a cracker, huh? Polly want a cracker!"</li>
-              <li>Eris Thornveil got her first sword shard, starting her on her quest to retrieve them all.</li>
-            </ul>
-          </div>
-
-          <p class="endnote">Ended session at level 2.</p>
-
-          <details class="markup">
-            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
-            <div class="markup-body">
-              <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-2">## Session 2: Jackson the Bull Kills Goblins (DM Notes)
-&gt; **TL;DR:** Chasing the goblin shaman to free the circus prisoners, the party befriends a bull named Jackson who tears through the goblin camp. They rescue Elbafore and learn the sacrifices aim to summon not a spider god but one of The Dark Pantheon, the red giant watching Lance, later known as Volmol. Ezekiel meets The Collector on the road home, and after the shaman falls, Jeros nearly wipes the party with its staff. Back at the fortress, they later expose and kill the treacherous Jafar, with Hella (Red Jasmin) landing the final blow, and Eris claims her first sword shard. -Claude
-&gt; **Level:** 2
-
-### Before the Hunt
-- After Session 1, the party decides to chase down the goblin shaman to save any prisoners taken from the circus.
-- Each of them experiences a vision or dream involving a parent, a loved one, or a darker entity entirely.
-- Before leaving, they can speak with Duchess Marine, who hints that all is not what it seems in L'Equip. Talking with several NPCs turns up clues about who and what is causing trouble in the fortress.
-- Just before reaching the camp, the party's druid, Prickly Khactuz, befriended a bull named Jackson.
-
-### The Goblin Camp
-- The party approaches the goblin camp and is thrown straight into a fight as goblins swarm them. Jackson the bull proves a formidable asset, slaying many goblins himself.
-- After the battle, they can rescue Elbafore from a nearby cave, who helps heal the party before they move on to face the shaman.
-- They have a chance to save some of the carnival folk.
-
-### The Shaman
-- A vision reveals what the goblins are trying to summon with their sacrifices. It is not the spider god everyone assumed, but one of The Dark Pantheon: the god watching Lance specifically, a large, red, menacing figure peering down from the clouds. The party later identified it in Session 3 as Volmol.
-
-### The Journey Back
-- Camping on the way back, Ezekiel is visited by a mysterious woman offering instant fame and fortune in exchange for his eternal soul. When he refuses, she reveals herself as The Collector, a nemesis-like figure for the party.
-
-### Aftermath
-- The party succeeded in killing the goblin shaman.
-- Jeros picked up the shaman's staff and waved it around, nearly causing a total party kill and coming close to killing Lance and Eris. His chaotic streak here set the tone for how the party treated Jeros from then on.
-- They also took the ritual book, though the DM's note trails off on what Lance did with it.
-
-### Session 2.5 (Red Jasmin and Jafar Scene)
-- *These notes are written by Web, so they are exactly how this all went down. In no way are any of these details incorrect. (insert sarcasm)*
-- The party had a brief conversation with Jafar at the end of Session 1, where he tried to use his charisma on Hella and failed, leaving the party sketched out by him.
-- After Session 2, the party gathered more evidence that he is guilty of treachery and searched the castle for him, finding him in the throne room attacking Duchess Marine. The party killed him, with Hella (Red Jasmin) landing the final blow while Prickly, in parrot form, forced crackers into his mouth, taunting him: "Do you want a cracker, huh? Polly want a cracker!"
-- Eris Thornveil got her first sword shard, starting her on her quest to retrieve them all.
-
-*Ended session at level 2.*</pre>
-              <button class="copy" type="button" data-target="md-2" onclick="copyMarkup(this)">Copy markup</button>
-            </div>
-          </details>
-
-        </div>
-      </details>
-
-      <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session III</span><span class="title">The Library</span></span><span class="chev">&#9662;</span></summary>
-        <div class="session-body">
-
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>A lengthy lore dump reveals that 70 years ago six dark gods joined forces to turn the world into a playground of destruction, each one now tied to a party member. Prickly falls for a book, and the royal lady tasks them with finding a cannon. -Claude</p>
-            <p class="level">Party at level 3.</p>
-          </div>
-
-          <div class="scene">
-            <ul>
-              <li>The party finds out much in the lore dump of the century.</li>
-              <li>70 years ago, 6 dark gods attempted to break into the world. They normally are solo, but this time they joined together to have the planet as a playground of destruction. It's a possibility they have agents on the planet.
-                <ul class="sub">
-                  <li>Saval: temptress, red horns, ambition</li>
-                  <li>Bilogis: famine, green</li>
-                  <li>Vugak: clown, laughter and trickery</li>
-                  <li>Volmol: big red one, war and destruction</li>
-                  <li>Izmataz: god of knowledge</li>
-                  <li>Imotet: god of death</li>
-                </ul>
-              </li>
-              <li>Each of these deities is responsible for and connected to many of the players:
-                <ul class="sub">
-                  <li>Saval is assumed to be affecting Eris.</li>
-                  <li>Bilogis is assumed to be affecting Hella.</li>
-                  <li>Vugak is assumed to be affecting Ezekial.</li>
-                  <li>Volmol is assumed to be affecting Lance.</li>
-                  <li>Izmataz is assumed to be affecting no one. Prickly is positive he is not being affected. The DM laughed for some unrelated reason.</li>
-                  <li>Imotet is assumed to be affecting Jeros, although that is not specifically said in game.</li>
-                </ul>
-              </li>
-              <li>Prickly falls in love with a book and is eventually dragged out of the library with book in hand.</li>
-              <li>They learn from the royal lady they need to find a cannon.</li>
-            </ul>
-          </div>
-
-          <p class="endnote">Ended session at level 3.</p>
-
-          <details class="markup">
-            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
-            <div class="markup-body">
-              <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-3">## Session 3: The Library
-&gt; **TL;DR:** A lengthy lore dump reveals that 70 years ago six dark gods joined forces to turn the world into a playground of destruction, each one now tied to a party member. Prickly falls for a book, and the royal lady tasks them with finding a cannon. -Claude
-&gt; **Level:** 3
-
-- The party finds out much in the lore dump of the century.
-- 70 years ago, 6 dark gods attempted to break into the world. They normally are solo, but this time they joined together to have the planet as a playground of destruction. It's a possibility they have agents on the planet.
-  - Saval: temptress, red horns, ambition
-  - Bilogis: famine, green
-  - Vugak: clown, laughter and trickery
-  - Volmol: big red one, war and destruction
-  - Izmataz: god of knowledge
-  - Imotet: god of death
-- Each of these deities is responsible for and connected to many of the players:
-  - Saval is assumed to be affecting Eris.
-  - Bilogis is assumed to be affecting Hella.
-  - Vugak is assumed to be affecting Ezekial.
-  - Volmol is assumed to be affecting Lance.
-  - Izmataz is assumed to be affecting no one. Prickly is positive he is not being affected. The DM laughed for some unrelated reason.
-  - Imotet is assumed to be affecting Jeros, although that is not specifically said in game.
-- Prickly falls in love with a book and is eventually dragged out of the library with book in hand.
-- They learn from the royal lady they need to find a cannon.
-
-*Ended session at level 3.*</pre>
-              <button class="copy" type="button" data-target="md-3" onclick="copyMarkup(this)">Copy markup</button>
-            </div>
-          </details>
-
-        </div>
-      </details>
-
-      <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session IV</span><span class="title">The Casino</span></span><span class="chev">&#9662;</span></summary>
-        <div class="session-body">
-
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>After a friendly tea party with Broxagar the Sheriff, the party heads to the casino and traces the cannon to a lady in red: Orphelia, a powerful pirate captain who turns out to be Prickly's long-lost adopted sister and the holder of the cannon they sought. Ezekiel is punched clean out of the campaign, Hella declares herself married to Prickly, and the party leaves with Orphelia. -Claude</p>
-            <p class="level">Party at level 3.</p>
-          </div>
-
-          <div class="scene">
-            <ul>
-              <li>They met Broxagar the Sheriff and had a nice tea party with him.</li>
-              <li>Prickly left Broxagar spiders to tend to the pests in his beloved garden.</li>
-              <li>The party also meets with Fizzle Industries and learns more about the cannon they were after, being held by a lady in red.</li>
-              <li>Prickly found out some plants are fake and horribly kept.</li>
-              <li>Jeros gambles.</li>
-              <li>There is the great arena fight where Ezekiel is one-punched so hard he left the campaign.</li>
-              <li>They learn gambling is bad by seeing Ed Sheram lose it all.</li>
-              <li>Prickly met the lady in red, named Orphelia, a powerful pirate captain, and learns more about how Jeros stole her parrot, leading to his outcasting. Prickly finds out Orphelia is his long-lost adopted sister.</li>
-              <li>In an effort to save Prickly from himself, Hella lets everyone know, including Prickly, that Prickly and Hella are married now. Prickly agrees.</li>
-              <li>They all leave with Orphelia.</li>
-              <li>They also discover Orphelia was the recipient of the cannon they needed to find.</li>
-            </ul>
-          </div>
-
-          <p class="endnote">Ended session at level 3.</p>
-
-          <details class="markup">
-            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
-            <div class="markup-body">
-              <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-4">## Session 4: The Casino
-&gt; **TL;DR:** After a friendly tea party with Broxagar the Sheriff, the party heads to the casino and traces the cannon to a lady in red: Orphelia, a powerful pirate captain who turns out to be Prickly's long-lost adopted sister and the holder of the cannon they sought. Ezekiel is punched clean out of the campaign, Hella declares herself married to Prickly, and the party leaves with Orphelia. -Claude
-&gt; **Level:** 3
-
-- They met Broxagar the Sheriff and had a nice tea party with him.
-- Prickly left Broxagar spiders to tend to the pests in his beloved garden.
-- The party also meets with Fizzle Industries and learns more about the cannon they were after, being held by a lady in red.
-- Prickly found out some plants are fake and horribly kept.
-- Jeros gambles.
-- There is the great arena fight where Ezekiel is one-punched so hard he left the campaign.
-- They learn gambling is bad by seeing Ed Sheram lose it all.
-- Prickly met the lady in red, named Orphelia, a powerful pirate captain, and learns more about how Jeros stole her parrot, leading to his outcasting. Prickly finds out Orphelia is his long-lost adopted sister.
-- In an effort to save Prickly from himself, Hella lets everyone know, including Prickly, that Prickly and Hella are married now. Prickly agrees.
-- They all leave with Orphelia.
-- They also discover Orphelia was the recipient of the cannon they needed to find.
-
-*Ended session at level 3.*</pre>
-              <button class="copy" type="button" data-target="md-4" onclick="copyMarkup(this)">Copy markup</button>
-            </div>
-          </details>
-
-        </div>
-      </details>
-
-      <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session V</span><span class="title">The Plague Island</span></span><span class="chev">&#9662;</span></summary>
-        <div class="session-body">
-
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>Prickly's new seagull spy network finds the black ship. En route to Pirate Island the party lands on a plague-stricken island, beats back the risen dead, and heals it, with Jeros landing the finishing blow on the boss. They identify Bilogis as the root cause and Darathan as a likely lead. -Claude</p>
-            <p class="level">Party at level 4.</p>
-          </div>
-
-          <div class="scene">
-            <ul>
-              <li>Prickly founds a new network of espionage and spycraft through his trusty seagulls, and finds out where the black ship is by using this.</li>
-              <li>The party comes across an island on the way to Pirate Island that has been stricken with a deadly and seemingly magical plague.</li>
-              <li>The black ship owned by Darathan the Black was seen dumping bodies of dead slaves into the ocean, which washed ashore and became the onset of the pandemic.</li>
-              <li>The ill began to rise as sickly, zombie-like beings that fought the party until the party beat them back, healing the island from the plague.</li>
-              <li>The battle was single-handedly won by Jeros (insert sarcasm sign), but jokes aside, Jeros did have a great finishing move on the boss.</li>
-              <li>The party realizes that Bilogis is the root cause, but they suspect Darathan may have some part to play, or at the least be a lead in their investigation.</li>
-            </ul>
-          </div>
-
-          <p class="endnote">Ended session at level 4.</p>
-
-          <details class="markup">
-            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
-            <div class="markup-body">
-              <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-5">## Session 5: The Plague Island
-&gt; **TL;DR:** Prickly's new seagull spy network finds the black ship. En route to Pirate Island the party lands on a plague-stricken island, beats back the risen dead, and heals it, with Jeros landing the finishing blow on the boss. They identify Bilogis as the root cause and Darathan as a likely lead. -Claude
-&gt; **Level:** 4
-
-- Prickly founds a new network of espionage and spycraft through his trusty seagulls, and finds out where the black ship is by using this.
-- The party comes across an island on the way to Pirate Island that has been stricken with a deadly and seemingly magical plague.
-- The black ship owned by Darathan the Black was seen dumping bodies of dead slaves into the ocean, which washed ashore and became the onset of the pandemic.
-- The ill began to rise as sickly, zombie-like beings that fought the party until the party beat them back, healing the island from the plague.
-- The battle was single-handedly won by Jeros (insert sarcasm sign), but jokes aside, Jeros did have a great finishing move on the boss.
-- The party realizes that Bilogis is the root cause, but they suspect Darathan may have some part to play, or at the least be a lead in their investigation.
-
-*Ended session at level 4.*</pre>
-              <button class="copy" type="button" data-target="md-5" onclick="copyMarkup(this)">Copy markup</button>
-            </div>
-          </details>
-
-        </div>
-      </details>
-
-      <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session VI</span><span class="title">Intro to the Pirate Island</span></span><span class="chev">&#9662;</span></summary>
-        <div class="session-body">
-
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>The party reaches the pirate island and digs into Jeros's situation, getting precious little help from Jeros himself. Prickly has an emotional reunion with his father Khozi, now in his final form as a magical tree, and starts looking into reaching that same druidic state. -Claude</p>
-            <p class="level">Party at level 4.</p>
-          </div>
-
-          <div class="scene">
-            <ul>
-              <li>The party arrived at the pirate island and found out more about Jeros and his situation, despite Jeros being as helpful as a toothpick at a dentist's office.</li>
-              <li>Darathan the Black is a meanie.</li>
-              <li>Prickly reunites in an emotional reunion with his father Khozi. Prickly is overjoyed with his father's final form as a magical tree. Prickly investigates how he may also achieve this new form of druid nirvana.</li>
-            </ul>
-          </div>
-
-          <p class="endnote">Ended session at level 4.</p>
-
-          <details class="markup">
-            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
-            <div class="markup-body">
-              <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-6">## Session 6: Intro to the Pirate Island
-&gt; **TL;DR:** The party reaches the pirate island and digs into Jeros's situation, getting precious little help from Jeros himself. Prickly has an emotional reunion with his father Khozi, now in his final form as a magical tree, and starts looking into reaching that same druidic state. -Claude
-&gt; **Level:** 4
-
-- The party arrived at the pirate island and found out more about Jeros and his situation, despite Jeros being as helpful as a toothpick at a dentist's office.
-- Darathan the Black is a meanie.
-- Prickly reunites in an emotional reunion with his father Khozi. Prickly is overjoyed with his father's final form as a magical tree. Prickly investigates how he may also achieve this new form of druid nirvana.
-
-*Ended session at level 4.*</pre>
-              <button class="copy" type="button" data-target="md-6" onclick="copyMarkup(this)">Copy markup</button>
-            </div>
-          </details>
-
-        </div>
-      </details>
-
-      <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session VII</span><span class="title">Taking the Sea Dragon</span></span><span class="chev">&#9662;</span></summary>
-        <div class="session-body">
-
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>Captured the ship The Sea Dragon, killed her captain, and took the survivors' surrender. Earned 390 gp each and gained a baby great white shark named Sydney. -Claude</p>
-            <p class="level">Party at level 4.</p>
-          </div>
-
-          <div class="scene">
-            <h3>Orphelia's Tavern</h3>
-            <ul>
-              <li>No idea what kind of tree Khozi turned into, but he did so just by sitting around many critters.</li>
-              <li>Jeros's little brother is staying with Orphelia now in her tavern.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>Out at Sea</h3>
-            <ul>
-              <li>We went to take a ship named The Sea Dragon.</li>
-              <li>We took the ship and killed the captain during the fight.</li>
-              <li>7-8 surrendered.</li>
-              <li>We have a new baby great white shark named Sydney.</li>
-              <li>We earned 390 gp each.</li>
-            </ul>
-          </div>
-
-          <p class="endnote">Ended session at level 4.</p>
-
-          <details class="markup">
-            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
-            <div class="markup-body">
-              <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-7">## Session 7: Taking the Sea Dragon
-> **TL;DR:** Captured the ship The Sea Dragon, killed her captain, and took the survivors' surrender. Earned 390 gp each and gained a baby great white shark named Sydney. -Claude
-> **Level:** 4
-
-### Orphelia's Tavern
-- No idea what kind of tree Khozi turned into, but he did so just by sitting around many critters.
-- Jeros's little brother is staying with Orphelia now in her tavern.
-
-### Out at Sea
-- We went to take a ship named The Sea Dragon.
-- We took the ship and killed the captain during the fight.
-- 7-8 surrendered.
-- We have a new baby great white shark named Sydney.
-- We earned 390 gp each.
-
-*Ended session at level 4.*</pre>
-              <button class="copy" type="button" data-target="md-7" onclick="copyMarkup(this)">Copy markup</button>
-            </div>
-          </details>
-
-        </div>
-      </details>
-
-      <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session VIII</span><span class="title">What the Tea Revealed</span></span><span class="chev">&#9662;</span></summary>
-        <div class="session-body">
-
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>Lobbied the pirate lord council to back Jeros and fell flat. At the Tea House, learned the tea can surface Jeros's lost memories of his crime, with Emilia able to act as a witness, and saw that Sir Darathan had taken him away under a spell. -Claude</p>
-            <p class="level">Party at level 4.</p>
-          </div>
-
-          <div class="scene">
-            <h3>Out at Sea</h3>
-            <ul>
-              <li>Sydney and Prickly went on their first hunt.</li>
-              <li>Hella caught fish.</li>
-              <li>Jeros caught prick.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>At the Docks</h3>
-            <ul>
-              <li>Prickly made earrings from his shark teeth and silver fish hooks. After that they shared their first kiss. He rolled low.</li>
-              <li>We received word we need to go to the different pirate lords to advocate for Jeros.</li>
-              <li>The eight pirate lord council members:
-                <ul class="sub">
-                  <li>Capitan Del Herro Nochas</li>
-                  <li>Capitan Emilia Von Drakkenberg</li>
-                  <li>Kairi Namujima</li>
-                  <li>The Gentleman Pirate</li>
-                  <li>Pirate Capitan Osiris</li>
-                  <li>Orphilia</li>
-                  <li>Pirate Prince Darathan the Black</li>
-                  <li>Gozlock</li>
-                </ul>
-              </li>
-              <li>We didn't really do well in doing so given we didn't really have much information, and it's Jeros.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>Tea House</h3>
-            <ul>
-              <li>Jeros was mad at his dad for not letting him go out to sea. Darathan the Black decided to take him on board his crew. After/during negotiations Jeros lost his memory, but as time passed he realized he committed his crime.</li>
-              <li>Eris explains that her sword gave her some insight.</li>
-              <li>We learn that Emilia Van Drakenburg, with the use of the tea, can peer into his mind and potentially act as a witness.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>Tavern</h3>
-            <ul>
-              <li>Orphelia fetches for her at her tavern.</li>
-              <li>Hella goes to bathe and get her hair done by the Gentleman Pirate.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>The Memories</h3>
-            <ul>
-              <li>Jeros was in the compound.</li>
-              <li>A woman entered, the woman behind their point of view, and she did some witchcraft. It was the same person at Sir Darathan's side when they first went into the Tavern.</li>
-              <li>They witness Sir Darathan leave with Jeros while Jeros was incapacitated under a spell. While in the spell it felt as though there was a trap door leading to a large creature surrounded by screams.</li>
-              <li>After getting to their destination, Jeros's memories came back.</li>
-              <li>No news about the parrot.</li>
-            </ul>
-          </div>
-
-          <p class="endnote">Ended session at level 4.</p>
-
-          <details class="markup">
-            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
-            <div class="markup-body">
-              <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-8">## Session 8: What the Tea Revealed
-> **TL;DR:** Lobbied the pirate lord council to back Jeros and fell flat. At the Tea House, learned the tea can surface Jeros's lost memories of his crime, with Emilia able to act as a witness, and saw that Sir Darathan had taken him away under a spell. -Claude
-> **Level:** 4
-
-### Out at Sea
-- Sydney and Prickly went on their first hunt.
-- Hella caught fish.
-- Jeros caught prick.
-
-### At the Docks
-- Prickly made earrings from his shark teeth and silver fish hooks. After that they shared their first kiss. He rolled low.
-- We received word we need to go to the different pirate lords to advocate for Jeros.
-- The eight pirate lord council members:
-  - Capitan Del Herro Nochas
-  - Capitan Emilia Von Drakkenberg
-  - Kairi Namujima
-  - The Gentleman Pirate
-  - Pirate Capitan Osiris
-  - Orphilia
-  - Pirate Prince Darathan the Black
-  - Gozlock
-- We didn't really do well in doing so given we didn't really have much information, and it's Jeros.
-
-### Tea House
-- Jeros was mad at his dad for not letting him go out to sea. Darathan the Black decided to take him on board his crew. After/during negotiations Jeros lost his memory, but as time passed he realized he committed his crime.
-- Eris explains that her sword gave her some insight.
-- We learn that Emilia Van Drakenburg, with the use of the tea, can peer into his mind and potentially act as a witness.
-
-### Tavern
-- Orphelia fetches for her at her tavern.
-- Hella goes to bathe and get her hair done by the Gentleman Pirate.
-
-### The Memories
-- Jeros was in the compound.
-- A woman entered, the woman behind their point of view, and she did some witchcraft. It was the same person at Sir Darathan's side when they first went into the Tavern.
-- They witness Sir Darathan leave with Jeros while Jeros was incapacitated under a spell. While in the spell it felt as though there was a trap door leading to a large creature surrounded by screams.
-- After getting to their destination, Jeros's memories came back.
-- No news about the parrot.
-
-*Ended session at level 4.*</pre>
-              <button class="copy" type="button" data-target="md-8" onclick="copyMarkup(this)">Copy markup</button>
-            </div>
-          </details>
-
-        </div>
-      </details>
-
-      <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session IX</span><span class="title">Beneath the Tide Pool</span></span><span class="chev">&#9662;</span></summary>
-        <div class="session-body">
-
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>Orphelia sends the party down a new tide pool into a cavern network. They parley with rat-humanoids mining a hazardous green rock under Sloppy Crookshanks, then trail dark elves to Darathan the Black's slave-mining lair, staffed by the enchantress who erased Jeros's memories. After a messy fight and a spider-form scouting run, they retreat to plan and seek Orphelia's counsel. -Claude</p>
+            <p>Session Zero sets the stage. Five years ago the Amaroon Enclave fell in Waterdeep, and on the same evening Etrian's kill switch device detonated over the Seven Hills, a Lisbon-inspired region twenty miles south. The Longest Night held the region beneath a violet veil for 77 hours, killed no one, and left behind permanent twilight, unstable magic, haunted landmarks, and the objects called Arcane Scars. Five years on, PIDE's surveillance state tightens in the north while the south survives on community, and old questions about the Enclave and the source of the Longest Night are surfacing again. -Claude</p>
             <p class="level">Party at level 5.</p>
           </div>
 
           <div class="scene">
-            <h3>At the Tavern</h3>
+            <h3>Campaign Setup</h3>
             <ul>
-              <li>The party received a mission from Orphelia to investigate a suspicious tide pool (not seen before).</li>
+              <li>Characters start with a magic or rare item.</li>
             </ul>
           </div>
 
           <div class="scene">
-            <h3>Rats in the Pool</h3>
+            <h3>What in the Seven Hills? (DM Notes)</h3>
+            <p>Five years ago, the Amaroon Enclave fell in Waterdeep.</p>
+            <p>On the same summer evening, far to the south, the Seven Hills went dark. A blinding flash rose beyond the Tagus. The shockwave knocked people from their feet, shattered windows, and silenced a region in an instant. Then came the darkness: a violet-black veil that swallowed the sky and held the Seven Hills beneath it for seventy-seven hours. No one died.</p>
+            <p>That is the part no one can explain. For three days and three nights, the world became strange and still. People gathered in homes, taverns, temples, warehouses, and public squares. They waited together beneath a sky without stars or sun, listening to an unfamiliar hum in their dreams and hoping the light would return.</p>
+            <p>When it did, the Seven Hills had changed.</p>
+            <p>The western coast was left in permanent twilight. Forests began growing in impossible shapes. Patches of land became unstable, where magic flickered, memory failed, and the world itself seemed unsure how it was meant to behave. Strange objects&mdash;later called Arcane Scars&mdash;began turning up in homes, markets, ruins, and the hands of people who could not explain where they had found them.</p>
+            <p>The Longest Night ended.</p>
+            <p>Its echo did not.</p>
+          </div>
+
+          <div class="scene">
+            <h3>The Event</h3>
             <ul>
-              <li>The party discovers the large tide pool is giving access to a trap door.</li>
-              <li>The party investigates to find a secret mining operation of rat-like humanoids.</li>
-              <li>After a tense, hesitant agreement to talk, pushed for by Prickly due to the cuteness of the rat-like humanoids (blame him if all goes wrong), the group finds this operation is run by a commander named Sloppy Crookshanks (Ratman leader).</li>
-              <li>They are after this green shining rock, which seems to have very hazardous properties to the touch and, when consumed, gives the rats powerful abilities.</li>
-              <li>Sloppy Crookshanks mentions others being in the cavern network.
+              <li>A mushroom cloud erupted roughly 20 miles south of Waterdeep, in the region known as the Seven Hills.</li>
+              <li>Some kind of moonstone explosion, as a result of identifying the shard.</li>
+              <li>Etrian's kill switch bomb; Zircon has the blueprint for the device.</li>
+              <li>The mushroom cloud did not cause any casualties. It just caused crazy things to happen: miscasting of spells, creatures of different planes of existence.</li>
+              <li>A purple shimmering mist covered the entire region for 77 hours.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>The Lay of the Land (DM Notes)</h3>
+            <p>The Seven Hills lies south of Waterdeep, where the broad Tagus meets the Sword Coast. It is a region divided by water, history, and increasingly by politics.</p>
+            <p>To the north stands Lissabon, the great city of seven hills: crowded streets, grand squares, harbours, noble houses, guild interests, and watchful authority. Once the region&rsquo;s unquestioned heart, it has become a place of permits, checkpoints, data collection, and carefully managed public order. The Protection of Intellect and Data Enclave&mdash;PIDE&mdash;claims that its surveillance and restrictions are necessary to keep the population safe from the magical aftermath of the Longest Night.</p>
+            <p>West of the capital lie the green hills of Sintra and the coastal splendour of the Crystal Ward, where a glittering dome of unknown origin still imprisons part of the shoreline. Across the Tagus, the southern peninsula tells a different story.</p>
+            <p>Almada clings to the riverbank beneath the great bridge. The Clay Bay smokes with industry, labour, shipyards, and stubborn community. Beyond it stretch the darkened cliffs of the Shadow Shores, the unstable wilds of the Axium Forest, and the forested mountains of Arr&aacute;bida&mdash;where few people willingly travel, and fewer return with the same certainty about what they saw.</p>
+            <p>The north speaks of order.</p>
+            <p>The south speaks of survival.</p>
+            <p>Between them flows the Tagus, carrying trade, rumours, refugees, secrets, and the quiet understanding that the Seven Hills is becoming two different worlds.</p>
+          </div>
+
+          <div class="scene">
+            <h3>The Districts</h3>
+            <ul>
+              <li>A region of seven districts located 20 miles south of Waterdeep. Inspired by real-life Lisbon.</li>
+              <li>Crystal Ward:
                 <ul class="sub">
-                  <li>Some barbarians that are extremely confrontational.</li>
-                  <li>As well as some shady dark elves.</li>
-                  <li>Both seem to be somewhat of an uneasy annoyance for Sloppy Crookshanks, but not yet a problem given their undisclosed location.</li>
+                  <li>A dome was created over the region of the Crystal Ward after the mist, and possibly as a result of it.</li>
+                  <li>The only way in or out is through a portal system, mainly used for food.</li>
                 </ul>
               </li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>On the Dark Elves' Trail</h3>
-            <ul>
-              <li>The party agrees to investigate these elves, assuming they are part of the same faction as Prince Darathan the Black.</li>
-              <li>Going through the network of tunnels, the party sneaks by most guards.</li>
-              <li>They pass by a pool seemingly infected with dead bodies.
+              <li>The Shadow Shores (formerly the Diamond Shores):
                 <ul class="sub">
-                  <li>Later discovered to be the domain of a very large basilisk or other large serpent-like creature (a beast technically, but can't be tamed by Prickly).</li>
+                  <li>Went from a luxury spot to a place of eternal darkness, as a result of the mist shroud in the sky, even after five years.</li>
+                  <li>Most inhabitants left the Shadow Shores for other regions.</li>
                 </ul>
               </li>
+              <li>Almada:
+                <ul class="sub">
+                  <li>Mostly a fishing town.</li>
+                  <li>A very important port city.</li>
+                </ul>
+              </li>
+              <li>Arr&aacute;bida:
+                <ul class="sub">
+                  <li>Home of the Emerald Enclave and the Warden Enclave.</li>
+                  <li>Mainly a mountain range. Basically Maine.</li>
+                  <li>Has an international port to travel from, operated by the Orders Gauntlet.</li>
+                </ul>
+              </li>
+              <li>Remaining three districts: not yet named.</li>
+              <li>Region-wide: many of the historic palaces and landmarks are now haunted.</li>
             </ul>
           </div>
 
           <div class="scene">
-            <h3>Battle</h3>
-            <ul>
-              <li>The party fights and kills some guards, leading others away from the battle with some odd tactics and DM mercy.</li>
-              <li>The snake comes out to say hi. Prickly offers the bodies of the freshly dead dark elves as, uh, a peace offering.</li>
-            </ul>
+            <h3>The Echoes Remain (DM Notes)</h3>
+            <p>Five years is long enough for a disaster to become routine.</p>
+            <p>People rebuild. Children grow up knowing which roads are unsafe after dark. Markets learn which Scar-touched objects are worth money and which ones whisper when no one is listening. Families adapt to strange weather, distorted memories, and the occasional patch of reality that refuses to behave. PIDE expands its reach in the name of protection. Communities south of the river endure because they have one another.</p>
+            <p>But something is changing. Arcane disturbances are becoming harder to ignore. Scarred objects are disappearing into official custody. People who ask the wrong questions are watched, discouraged, or simply vanish from public view. Old rumours about the Amaroon Enclave, its connections beyond Faer&ucirc;n, and the source of the Longest Night have begun to surface once more.</p>
+            <p>The Seven Hills has lived with the consequences of the past for five years. Now it must decide what to do with them.</p>
+            <p>What truly caused the Longest Night? Why did no one die beneath its impossible darkness? What are the Arcane Scars&mdash;and why does PIDE want them? What did the Amaroon Enclave leave behind?</p>
+            <p>And if the region is still changing, how much of the Seven Hills can be lost before it is no longer home?</p>
           </div>
 
           <div class="scene">
-            <h3>Investigation of the Dark Elf Lair</h3>
+            <h3>The Present Day</h3>
             <ul>
-              <li>Prickly investigates the lair in spider form and reports a slave mining operation with a frightening number of slaves and soldiers working for Darathan the Black. Darathan is on the 2nd level in some office, along with the enchantress now responsible for the erasing of Jeros's memories and his conviction for the stolen parrot.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>The Verdict</h3>
-            <ul>
-              <li>The party agrees to back away safely for now to avoid death and formulate a better plan of attack or action, eventually hoping to seek guidance from Orphelia.</li>
-              <li>On the way back, the party prepares to investigate the barbarians in the caverns.</li>
-              <li>The session ends with a long rest due to the level up.</li>
+              <li>Nobody knows much.</li>
+              <li>Nobody knows where the Amaroon Enclave is.</li>
+              <li>PIDE is working similar to the CIA: it oversees the flow of any information and does all the investigating.</li>
+              <li>The government is a democratically elected right-wing authoritarian government with a good amount of surveillance.</li>
             </ul>
           </div>
 
@@ -864,279 +589,416 @@
             <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
             <div class="markup-body">
               <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-9">## Session 9: Beneath the Tide Pool
-&gt; **TL;DR:** Orphelia sends the party down a new tide pool into a cavern network. They parley with rat-humanoids mining a hazardous green rock under Sloppy Crookshanks, then trail dark elves to Darathan the Black's slave-mining lair, staffed by the enchantress who erased Jeros's memories. After a messy fight and a spider-form scouting run, they retreat to plan and seek Orphelia's counsel. -Claude
+<pre id="md-0">## Session 0: The Longest Night
+&gt; **TL;DR:** Session Zero sets the stage. Five years ago the Amaroon Enclave fell in Waterdeep, and on the same evening Etrian's kill switch device detonated over the Seven Hills, a Lisbon-inspired region twenty miles south. The Longest Night held the region beneath a violet veil for 77 hours, killed no one, and left behind permanent twilight, unstable magic, haunted landmarks, and the objects called Arcane Scars. Five years on, PIDE's surveillance state tightens in the north while the south survives on community, and old questions about the Enclave and the source of the Longest Night are surfacing again. -Claude
 &gt; **Level:** 5
 
-### At the Tavern
-- The party received a mission from Orphelia to investigate a suspicious tide pool (not seen before).
+### Campaign Setup
+- Characters start with a magic or rare item.
 
-### Rats in the Pool
-- The party discovers the large tide pool is giving access to a trap door.
-- The party investigates to find a secret mining operation of rat-like humanoids.
-- After a tense, hesitant agreement to talk, pushed for by Prickly due to the cuteness of the rat-like humanoids (blame him if all goes wrong), the group finds this operation is run by a commander named Sloppy Crookshanks (Ratman leader).
-- They are after this green shining rock, which seems to have very hazardous properties to the touch and, when consumed, gives the rats powerful abilities.
-- Sloppy Crookshanks mentions others being in the cavern network.
-  - Some barbarians that are extremely confrontational.
-  - As well as some shady dark elves.
-  - Both seem to be somewhat of an uneasy annoyance for Sloppy Crookshanks, but not yet a problem given their undisclosed location.
+### What in the Seven Hills? (DM Notes)
+Five years ago, the Amaroon Enclave fell in Waterdeep.
 
-### On the Dark Elves' Trail
-- The party agrees to investigate these elves, assuming they are part of the same faction as Prince Darathan the Black.
-- Going through the network of tunnels, the party sneaks by most guards.
-- They pass by a pool seemingly infected with dead bodies.
-  - Later discovered to be the domain of a very large basilisk or other large serpent-like creature (a beast technically, but can't be tamed by Prickly).
+On the same summer evening, far to the south, the Seven Hills went dark. A blinding flash rose beyond the Tagus. The shockwave knocked people from their feet, shattered windows, and silenced a region in an instant. Then came the darkness: a violet-black veil that swallowed the sky and held the Seven Hills beneath it for seventy-seven hours. No one died.
 
-### Battle
-- The party fights and kills some guards, leading others away from the battle with some odd tactics and DM mercy.
-- The snake comes out to say hi. Prickly offers the bodies of the freshly dead dark elves as, uh, a peace offering.
+That is the part no one can explain. For three days and three nights, the world became strange and still. People gathered in homes, taverns, temples, warehouses, and public squares. They waited together beneath a sky without stars or sun, listening to an unfamiliar hum in their dreams and hoping the light would return.
 
-### Investigation of the Dark Elf Lair
-- Prickly investigates the lair in spider form and reports a slave mining operation with a frightening number of slaves and soldiers working for Darathan the Black. Darathan is on the 2nd level in some office, along with the enchantress now responsible for the erasing of Jeros's memories and his conviction for the stolen parrot.
+When it did, the Seven Hills had changed.
 
-### The Verdict
-- The party agrees to back away safely for now to avoid death and formulate a better plan of attack or action, eventually hoping to seek guidance from Orphelia.
-- On the way back, the party prepares to investigate the barbarians in the caverns.
-- The session ends with a long rest due to the level up.
+The western coast was left in permanent twilight. Forests began growing in impossible shapes. Patches of land became unstable, where magic flickered, memory failed, and the world itself seemed unsure how it was meant to behave. Strange objects—later called Arcane Scars—began turning up in homes, markets, ruins, and the hands of people who could not explain where they had found them.
+
+The Longest Night ended.
+
+Its echo did not.
+
+### The Event
+- A mushroom cloud erupted roughly 20 miles south of Waterdeep, in the region known as the Seven Hills.
+- Some kind of moonstone explosion, as a result of identifying the shard.
+- Etrian's kill switch bomb; Zircon has the blueprint for the device.
+- The mushroom cloud did not cause any casualties. It just caused crazy things to happen: miscasting of spells, creatures of different planes of existence.
+- A purple shimmering mist covered the entire region for 77 hours.
+
+### The Lay of the Land (DM Notes)
+The Seven Hills lies south of Waterdeep, where the broad Tagus meets the Sword Coast. It is a region divided by water, history, and increasingly by politics.
+
+To the north stands Lissabon, the great city of seven hills: crowded streets, grand squares, harbours, noble houses, guild interests, and watchful authority. Once the region's unquestioned heart, it has become a place of permits, checkpoints, data collection, and carefully managed public order. The Protection of Intellect and Data Enclave—PIDE—claims that its surveillance and restrictions are necessary to keep the population safe from the magical aftermath of the Longest Night.
+
+West of the capital lie the green hills of Sintra and the coastal splendour of the Crystal Ward, where a glittering dome of unknown origin still imprisons part of the shoreline. Across the Tagus, the southern peninsula tells a different story.
+
+Almada clings to the riverbank beneath the great bridge. The Clay Bay smokes with industry, labour, shipyards, and stubborn community. Beyond it stretch the darkened cliffs of the Shadow Shores, the unstable wilds of the Axium Forest, and the forested mountains of Arrábida—where few people willingly travel, and fewer return with the same certainty about what they saw.
+
+The north speaks of order.
+
+The south speaks of survival.
+
+Between them flows the Tagus, carrying trade, rumours, refugees, secrets, and the quiet understanding that the Seven Hills is becoming two different worlds.
+
+### The Districts
+- A region of seven districts located 20 miles south of Waterdeep. Inspired by real-life Lisbon.
+- Crystal Ward:
+  - A dome was created over the region of the Crystal Ward after the mist, and possibly as a result of it.
+  - The only way in or out is through a portal system, mainly used for food.
+- The Shadow Shores (formerly the Diamond Shores):
+  - Went from a luxury spot to a place of eternal darkness, as a result of the mist shroud in the sky, even after five years.
+  - Most inhabitants left the Shadow Shores for other regions.
+- Almada:
+  - Mostly a fishing town.
+  - A very important port city.
+- Arrábida:
+  - Home of the Emerald Enclave and the Warden Enclave.
+  - Mainly a mountain range. Basically Maine.
+  - Has an international port to travel from, operated by the Orders Gauntlet.
+- Remaining three districts: not yet named.
+- Region-wide: many of the historic palaces and landmarks are now haunted.
+
+### The Echoes Remain (DM Notes)
+Five years is long enough for a disaster to become routine.
+
+People rebuild. Children grow up knowing which roads are unsafe after dark. Markets learn which Scar-touched objects are worth money and which ones whisper when no one is listening. Families adapt to strange weather, distorted memories, and the occasional patch of reality that refuses to behave. PIDE expands its reach in the name of protection. Communities south of the river endure because they have one another.
+
+But something is changing. Arcane disturbances are becoming harder to ignore. Scarred objects are disappearing into official custody. People who ask the wrong questions are watched, discouraged, or simply vanish from public view. Old rumours about the Amaroon Enclave, its connections beyond Faerûn, and the source of the Longest Night have begun to surface once more.
+
+The Seven Hills has lived with the consequences of the past for five years. Now it must decide what to do with them.
+
+What truly caused the Longest Night? Why did no one die beneath its impossible darkness? What are the Arcane Scars—and why does PIDE want them? What did the Amaroon Enclave leave behind?
+
+And if the region is still changing, how much of the Seven Hills can be lost before it is no longer home?
+
+### The Present Day
+- Nobody knows much.
+- Nobody knows where the Amaroon Enclave is.
+- PIDE is working similar to the CIA: it oversees the flow of any information and does all the investigating.
+- The government is a democratically elected right-wing authoritarian government with a good amount of surveillance.
 
 *Ended session at level 5.*</pre>
-              <button class="copy" type="button" data-target="md-9" onclick="copyMarkup(this)">Copy markup</button>
+              <button class="copy" type="button" data-target="md-0" onclick="copyMarkup(this)">Copy markup</button>
             </div>
           </details>
 
         </div>
       </details>
 
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session 0.5</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session I</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session II</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session III</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session IV</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session V</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session VI</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session VII</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session VIII</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session IX</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
+      <details class="session empty"><summary><span class="summary-text"><span class="ord">Session X</span><span class="title">Log not yet recorded</span></span><span class="chev">&#9662;</span></summary><div class="empty-body">No entry yet. Send the notes and this voyage gets charted.</div></details>
+
       <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session X</span><span class="title">Storming Darathan's Lair</span></span><span class="chev">&#9662;</span></summary>
+        <summary><span class="summary-text"><span class="ord">Appendix</span><span class="title">Thalume ("dome-light")</span></span><span class="chev">&#9662;</span></summary>
         <div class="session-body">
 
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>With Orphelia's blessing and the rat folk as allies, the party storms the dark elf lair in a brutal battle, sparing a juvenile hydra at Prickly's request while Prince Darathan slips away. Back at the tavern, Jackson the bull recovers his spirits, Hella soothes Prickly with a poem, and the god Izmataz visits Prickly's dreams offering knowledge of his father and pointing him toward Azec Aroman at the Tower. -Claude</p>
-            <p class="level">Party at level 5.</p>
-          </div>
+          <p style="margin:.8rem 0 0;font-style:italic;color:var(--seafoam)">The tongue of the glowcap folk of the Veiled Forest, spoken by perhaps a few hundred individuals and never heard beyond the treeline. Spoken by Nimbus and his brother Lembas.</p>
 
           <div class="scene">
-            <h3>Escape and Alliance</h3>
+            <h3>Three Channels, One Language</h3>
             <ul>
-              <li>The group manages to escape the Tide Pool Dungeon, wanting to talk to Orphelia about what she thinks is best given the new information about the dark elf mining operation.</li>
-              <li>On their way out, they also persuade the rat folk to join any potential battle with the dark elves, with access to the green stones as payment.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>The Battle</h3>
-            <ul>
-              <li>Orphelia greenlights the battle with the dark elves and mentions she will attack from above ground while the party and rat folk attack from the Tide Pool Dungeons.</li>
-              <li>The battle is fierce, and many characters are nearly killed.</li>
-              <li>The dark elves had a juvenile hydra that did a ton of damage. The party did not kill the hydra, on behalf of Prickly's wishes.</li>
-            </ul>
-          </div>
-
-          <div class="scene">
-            <h3>After the Battle</h3>
-            <ul>
-              <li>Eris found letters in Prince Darathan's desk on the second floor. (Kept them to herself until Session 11.)</li>
-              <li>Orphelia's comments to the group:
+              <li>Every full utterance in Thalume uses all three at once, the way humans use words, tone, and facial expression:
                 <ul class="sub">
-                  <li>Prince Darathan got away.</li>
-                  <li>The slaves you freed were people who had been going missing around town.</li>
+                  <li><strong>The Bloom (light).</strong> Meaning lives in patterns pulsed across the dome. Vocabulary is spatial: a word is a shape of light, its position on the dome acting like a case marking. Something displayed at the crown is a subject; something rippling toward the rim is an object or destination.</li>
+                  <li><strong>The Hum (sound).</strong> A soft resonance from the bell rim carries the grammar: tense, mood, and emotional register. The rim lights flicker in time with it, like a visible metronome.</li>
+                  <li><strong>The Thread (touch).</strong> Tendril-to-tendril contact is the intimate register of exact thoughts, used for true names, grief, and anything not meant for the wider grove. Two glowcaps with intertwined tendrils are having a private conversation in the middle of a public one. The more public display of this form of language is telepathic communication done at a distance, which is more formal and used for communicating with outsiders.</li>
                 </ul>
               </li>
             </ul>
           </div>
 
           <div class="scene">
-            <h3>Back at Orphelia's Tavern</h3>
+            <h3>Phonology</h3>
             <ul>
-              <li>Prickly talked to Jackson to see if he was okay, given Hella's upset mood over the damage to her dear friend Jackson. Jackson was more than eager to keep fighting alongside the group and confirmed he is happy and fighting beside his friends by his own will.</li>
-              <li>Hella gave Prickly a poem to soothe his worries over his errors in combat:</li>
-            </ul>
-            <div class="verse">
-              <p>Feel your feet on the ground, there is nothing else<br>
-              And my hand on your heart, there is nothing else<br>
-              Hear these words and repeat them to yourself<br>
-              If you could see what I see, you would love yourself</p>
-            </div>
-            <ul>
-              <li>The crew settles down at the end of the night in Orphelia's tavern.</li>
+              <li>Because glowcaps have no hard mouthparts, the hummed component has no plosives at all: no <em>p, b, t, d, k,</em> or <em>g</em>. Everything is made of soft continuants (<em>m, n, l, s, sh, th, v, w, h</em>) and long vowels.</li>
+              <li>Doubled vowels mark intensity or brightness: <em>milu</em> is "light," <em>miluu</em> is "blazing light."</li>
+              <li>The overall sound is somewhere between wind chimes and a cat's purr.</li>
             </ul>
           </div>
 
           <div class="scene">
-            <h3>Izmataz's Dream</h3>
+            <h3>Tense Is a Color, Not a Word</h3>
+            <table class="lex plain">
+              <thead><tr><th>Tense</th><th>Color</th><th>Transcription prefix</th></tr></thead>
+              <tbody>
+                <tr><td>Past</td><td>Amber</td><td><em>aa-</em></td></tr>
+                <tr><td>Present</td><td>Blue-white</td><td><em>ee-</em></td></tr>
+                <tr><td>Future</td><td>Violet</td><td><em>yy-</em></td></tr>
+              </tbody>
+            </table>
             <ul>
-              <li>During the night, Izmataz visits Prickly in a dream, appearing as a magical bird-humanoid.</li>
-              <li>Izmataz offers knowledge of Prickly's father and his true form.</li>
-              <li>Prickly attempted to assist Izmataz by offering him food, but the entity declined the help. Izmataz is revealed to be suffering from a severe auditory hallucination, constantly hearing his name and conversations echoing in his mind. Izmataz identified himself as the god of unrelenting knowledge. Prickly remains understandably hesitant about addressing such a powerful divine being.</li>
-              <li>Izmataz recommends Prickly see Azec Aroman at the Tower to find out more about his father's state.</li>
+              <li>A glowcap describing something that never happened and never will simply goes dark mid-sentence.</li>
             </ul>
           </div>
 
-          <p class="endnote">Ended session at level 5.</p>
+          <div class="scene">
+            <h3>There Is No Word for "I"</h3>
+            <ul>
+              <li>The smallest pronoun is <em>venn</em>, "we-of-two": an acknowledgment of oneness in connection during telepathic communication.</li>
+              <li>Glowcaps bud in sibling pairs and think of themselves as half of something. Nimbus, speaking of himself, would literally say "the Nimbus-half of <em>venn</em>."</li>
+              <li>A glowcap whose sibling has died uses the mourning pronoun <em>ven-hollo</em>, "we-of-two, one dark," for the rest of their life.</li>
+              <li>This makes "brother" nearly redundant in Thalume; the language assumes it.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>There Is No Word for a Lie</h3>
+            <ul>
+              <li>Because of the abundance of telepathic communication, lying is nonexistent and nearly impossible to conceive for a glowcap.</li>
+              <li>They don't understand the purpose of a lie and see it merely as an inaccuracy, a sign of foolishness and ineffective communication. At that point, you might as well take the time and effort to read each other's minds.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>Lexicon</h3>
+            <table class="lex">
+              <thead><tr><th>Word</th><th>Meaning</th></tr></thead>
+              <tbody>
+                <tr><td>venn</td><td>we-of-two (basic pronoun)</td></tr>
+                <tr><td>shessa</td><td>the grove-mind; everyone currently in light-range</td></tr>
+                <tr><td>milu / miluu</td><td>light / brilliant light</td></tr>
+                <tr><td>hollo</td><td>darkness, absence; also silence</td></tr>
+                <tr><td>thal</td><td>the dome or cap; by extension, the self's "face"</td></tr>
+                <tr><td>ume</td><td>a pulse, a spoken thing, a word</td></tr>
+                <tr><td>nimm</td><td>rain-haze, the soft glow of mist (root of Nimbus's name)</td></tr>
+                <tr><td>lemm</td><td>nourishment shared freely, a gift of food (root of Lembas's name)</td></tr>
+                <tr><td>sylvenn</td><td>the forest, literally "the many-of-two"</td></tr>
+                <tr><td>wesshi</td><td>a stranger, literally "one whose light we cannot read"</td></tr>
+                <tr><td>hallume</td><td>a story, literally "dark-and-light," since stories require both</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="scene">
+            <h3>Sample Phrases</h3>
+            <ul>
+              <li>Greeting a friend:
+                <div class="verse"><p><em>Miluu venn shessa</em> — "Brightly we-of-two join the grove."<br>Delivered as a slow double-pulse at the crown of the dome, warm rim-hum, one tendril extended.</p></div>
+              </li>
+              <li>Greeting a stranger (<em>wesshi</em>):
+                <div class="verse"><p><em>Aa-milu?</em> — Roughly, "Was your light ever seen here before?"<br>A cautious single pulse, low and amber.</p></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>Writing</h3>
+            <ul>
+              <li>Thalume script mimics the body: vertical hanging lines (tendrils) strung with dots and knots (light beads), read top to bottom.</li>
+              <li>A written word looks like a strand of tendrils with lights caught in it.</li>
+              <li>Books are woven curtains; reading one properly means running a tendril down each strand, so the script is as much braille as text.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>True Names</h3>
+            <ul>
+              <li>True names are the one thing never spoken aloud. Each glowcap's true name is the constellation displayed inside their dome, unique from budding, and it can only be given by touch.</li>
+              <li>"Nimbus" and "Lembas" are just the pronounceable outer names; their real names are star maps only each other has fully read.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>The Echo Principle</h3>
+            <ul>
+              <li>Glowcaps do not have flat words for "yes" and "no." Answers are built on echoing:
+                <ul class="sub">
+                  <li><strong>Agreement</strong> means catching the asker's light pattern and pulsing it back brighter. Enthusiastic agreement returns the pattern brighter and faster.</li>
+                  <li><strong>Refusal or denial</strong> means letting the asker's pattern land on your dome and fade to dark without an echo.</li>
+                  <li><strong>Uncertainty</strong> is a broken, flickering half-echo.</li>
+                </ul>
+              </li>
+              <li>The spoken words below accompany these light responses; among glowcaps the echo alone is often enough.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>New Vocabulary</h3>
+            <table class="lex">
+              <thead><tr><th>Word</th><th>Meaning</th></tr></thead>
+              <tbody>
+                <tr><td>illa</td><td>question marker; a spiral pulse plus rising hum, opens any question</td></tr>
+                <tr><td>navv</td><td>to drift toward, to come</td></tr>
+                <tr><td>sull</td><td>to drift away, to leave</td></tr>
+                <tr><td>hesh</td><td>to rest, to furl one's tendrils; sleep</td></tr>
+                <tr><td>voss</td><td>to eat, to take food (contrast <em>lemm</em>, food freely given)</td></tr>
+                <tr><td>luvv</td><td>the heart-glow; the light at the center of the body</td></tr>
+                <tr><td>luvenn</td><td>two heart-glows pulsing in sync; love, deep bond</td></tr>
+                <tr><td>nesh</td><td>soon, nearly, almost within light-range</td></tr>
+                <tr><td>ollu</td><td>again, once more, re-echo</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="scene">
+            <h3>Common Answers</h3>
+            <table class="lex plain">
+              <thead><tr><th>Meaning</th><th>Thalume</th><th>Literal sense</th><th>Delivery</th></tr></thead>
+              <tbody>
+                <tr><td>Yes</td><td><em>Ee-milu</em></td><td>"It is lit"</td><td>Echo the asker's pattern, brighter</td></tr>
+                <tr><td>Emphatic yes</td><td><em>Ee-miluu</em></td><td>"It blazes"</td><td>Fast, brilliant echo across the whole dome</td></tr>
+                <tr><td>No</td><td><em>Ee-hollo</em></td><td>"It is dark"</td><td>Let the asker's pattern fade unanswered</td></tr>
+                <tr><td>Maybe</td><td><em>Milu-hollo</em></td><td>"Light-and-dark"</td><td>Flickering half-echo</td></tr>
+                <tr><td>I don't know</td><td><em>Ume wesshi venn</em></td><td>"The word is a stranger to us"</td><td>Slow dim ripple toward the rim</td></tr>
+                <tr><td>I understand</td><td><em>Milu navv venn</em></td><td>"The light reaches us"</td><td>Steady, calm echo at the crown</td></tr>
+                <tr><td>Say it again</td><td><em>Ollu, illa</em></td><td>"Again, asking"</td><td>Spiral pulse repeated twice</td></tr>
+                <tr><td>Wait</td><td><em>Hesh ume</em></td><td>"Rest the word"</td><td>Rim lights hold steady, dome goes still</td></tr>
+                <tr><td>Soon</td><td><em>Nesh, nesh</em></td><td>"Near, near"</td><td>Gentle pulses quickening in tempo</td></tr>
+                <tr><td>Never</td><td><em>Yy-hollo</em></td><td>"The future is dark"</td><td>Dome deliberately extinguished for one full breath, the gravest answer a glowcap can give</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="scene">
+            <h3>Everyday Phrases</h3>
+            <table class="lex plain">
+              <thead><tr><th>Meaning</th><th>Thalume</th><th>Literal sense</th><th>Delivery</th></tr></thead>
+              <tbody>
+                <tr><td>Come here</td><td><em>Navv venn</em></td><td>"Drift to us"</td><td>Crown-ward ripple, pulling light inward like a beckoning hand</td></tr>
+                <tr><td>I have to go</td><td><em>Sull venn, aa-lemm</em></td><td>"We drift away; it was a gift"</td><td>Rim-ward ripple, warm amber fade</td></tr>
+                <tr><td>Help!</td><td><em>Shessa! Hollo venn!</em></td><td>"Grove! We are dimming!"</td><td>Full-dome strobe, the one pattern every glowcap answers without question</td></tr>
+                <tr><td>I'm hungry</td><td><em>Illa lemm? Voss venn</em></td><td>"Is there a gift? We would eat"</td><td>Small pulses circling the heart-glow</td></tr>
+                <tr><td>Thank you</td><td><em>Miluu lemm</em></td><td>"A bright gift"</td><td>Warm bloom from the heart-glow up to the crown</td></tr>
+                <tr><td>You're welcome</td><td><em>Shessa lemm</em></td><td>"The grove gives"</td><td>Soft answering bloom, dimmer than the thanks</td></tr>
+                <tr><td>I'm sorry</td><td><em>Aa-hollo venn</em></td><td>"We were dark"</td><td>Dome dimmed, tendril extended in offering</td></tr>
+                <tr><td>It's alright / forgiven</td><td><em>Ee-milu venn</em></td><td>"We are lit again"</td><td>Taking the offered tendril, then a shared slow pulse</td></tr>
+                <tr><td>Goodnight</td><td><em>Hesh miluu</em></td><td>"Rest brightly"</td><td>Lights banked low and slow, like embers</td></tr>
+                <tr><td>Be careful</td><td><em>Wesshi sylvenn</em></td><td>"The forest holds strangers"</td><td>Quick amber flickers at the rim, hushed hum</td></tr>
+                <tr><td>I love you</td><td><em>Luvenn</em></td><td>"Two hearts in sync"</td><td>Touch register only: tendrils intertwined while both heart-glows pulse in matched rhythm, never said in open light</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="scene">
+            <h3>A Note on Nimbus and Lembas</h3>
+            <ul>
+              <li>Between bonded siblings, most of this shrinks to almost nothing. A lifetime of shared light means Lembas can answer Nimbus with a single flicker where a stranger would need the full phrase.</li>
+              <li>The long forms above are what glowcaps call <em>wesshi-ume</em>, "stranger-words": the careful, complete way of speaking kept for anyone whose light you cannot yet read.</li>
+            </ul>
+          </div>
 
           <details class="markup">
             <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
             <div class="markup-body">
               <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-10">## Session 10: Storming Darathan's Lair
-&gt; **TL;DR:** With Orphelia's blessing and the rat folk as allies, the party storms the dark elf lair in a brutal battle, sparing a juvenile hydra at Prickly's request while Prince Darathan slips away. Back at the tavern, Jackson the bull recovers his spirits, Hella soothes Prickly with a poem, and the god Izmataz visits Prickly's dreams offering knowledge of his father and pointing him toward Azec Aroman at the Tower. -Claude
-&gt; **Level:** 5
+<pre id="md-thalume">## Thalume ("dome-light")
+The tongue of the glowcap folk of the Veiled Forest, spoken by perhaps a few hundred individuals and never heard beyond the treeline. Spoken by Nimbus and his brother Lembas.
 
-### Escape and Alliance
-- The group manages to escape the Tide Pool Dungeon, wanting to talk to Orphelia about what she thinks is best given the new information about the dark elf mining operation.
-- On their way out, they also persuade the rat folk to join any potential battle with the dark elves, with access to the green stones as payment.
+### Three Channels, One Language
+Every full utterance in Thalume uses all three at once, the way humans use words, tone, and facial expression:
+- **The Bloom (light).** Meaning lives in patterns pulsed across the dome. Vocabulary is spatial: a word is a shape of light, its position on the dome acting like a case marking. Something displayed at the crown is a subject; something rippling toward the rim is an object or destination.
+- **The Hum (sound).** A soft resonance from the bell rim carries the grammar: tense, mood, and emotional register. The rim lights flicker in time with it, like a visible metronome.
+- **The Thread (touch).** Tendril-to-tendril contact is the intimate register of exact thoughts, used for true names, grief, and anything not meant for the wider grove. Two glowcaps with intertwined tendrils are having a private conversation in the middle of a public one. The more public display of this form of language is telepathic communication done at a distance, which is more formal and used for communicating with outsiders.
 
-### The Battle
-- Orphelia greenlights the battle with the dark elves and mentions she will attack from above ground while the party and rat folk attack from the Tide Pool Dungeons.
-- The battle is fierce, and many characters are nearly killed.
-- The dark elves had a juvenile hydra that did a ton of damage. The party did not kill the hydra, on behalf of Prickly's wishes.
+### Phonology
+Because glowcaps have no hard mouthparts, the hummed component has no plosives at all: no *p, b, t, d, k,* or *g*. Everything is made of soft continuants (*m, n, l, s, sh, th, v, w, h*) and long vowels.
+- Doubled vowels mark intensity or brightness: *milu* is "light," *miluu* is "blazing light."
+- The overall sound is somewhere between wind chimes and a cat's purr.
 
-### After the Battle
-- Eris found letters in Prince Darathan's desk on the second floor. (Kept them to herself until Session 11.)
-- Orphelia's comments to the group:
-  - Prince Darathan got away.
-  - The slaves you freed were people who had been going missing around town.
+### Tense Is a Color, Not a Word
+- Past: amber (*aa-*)
+- Present: blue-white (*ee-*)
+- Future: violet (*yy-*)
+A glowcap describing something that never happened and never will simply goes dark mid-sentence.
 
-### Back at Orphelia's Tavern
-- Prickly talked to Jackson to see if he was okay, given Hella's upset mood over the damage to her dear friend Jackson. Jackson was more than eager to keep fighting alongside the group and confirmed he is happy and fighting beside his friends by his own will.
-- Hella gave Prickly a poem to soothe his worries over his errors in combat:
-&gt; Feel your feet on the ground, there is nothing else
-&gt; And my hand on your heart, there is nothing else
-&gt; Hear these words and repeat them to yourself
-&gt; If you could see what I see, you would love yourself
-- The crew settles down at the end of the night in Orphelia's tavern.
+### There Is No Word for "I"
+The smallest pronoun is *venn*, "we-of-two": an acknowledgment of oneness in connection during telepathic communication.
+- Glowcaps bud in sibling pairs and think of themselves as half of something. Nimbus, speaking of himself, would literally say "the Nimbus-half of *venn*."
+- A glowcap whose sibling has died uses the mourning pronoun *ven-hollo*, "we-of-two, one dark," for the rest of their life.
+- This makes "brother" nearly redundant in Thalume; the language assumes it.
 
-### Izmataz's Dream
-- During the night, Izmataz visits Prickly in a dream, appearing as a magical bird-humanoid.
-- Izmataz offers knowledge of Prickly's father and his true form.
-- Prickly attempted to assist Izmataz by offering him food, but the entity declined the help. Izmataz is revealed to be suffering from a severe auditory hallucination, constantly hearing his name and conversations echoing in his mind. Izmataz identified himself as the god of unrelenting knowledge. Prickly remains understandably hesitant about addressing such a powerful divine being.
-- Izmataz recommends Prickly see Azec Aroman at the Tower to find out more about his father's state.
+### There Is No Word for a Lie
+Because of the abundance of telepathic communication, lying is nonexistent and nearly impossible to conceive for a glowcap. They don't understand the purpose of a lie and see it merely as an inaccuracy, a sign of foolishness and ineffective communication. At that point, you might as well take the time and effort to read each other's minds.
 
-*Ended session at level 5.*</pre>
-              <button class="copy" type="button" data-target="md-10" onclick="copyMarkup(this)">Copy markup</button>
-            </div>
-          </details>
+### Lexicon
+- *venn* — we-of-two (basic pronoun)
+- *shessa* — the grove-mind; everyone currently in light-range
+- *milu / miluu* — light / brilliant light
+- *hollo* — darkness, absence; also silence
+- *thal* — the dome or cap; by extension, the self's "face"
+- *ume* — a pulse, a spoken thing, a word
+- *nimm* — rain-haze, the soft glow of mist (root of Nimbus's name)
+- *lemm* — nourishment shared freely, a gift of food (root of Lembas's name)
+- *sylvenn* — the forest, literally "the many-of-two"
+- *wesshi* — a stranger, literally "one whose light we cannot read"
+- *hallume* — a story, literally "dark-and-light," since stories require both
 
-        </div>
-      </details>
+### Sample Phrases
+**Greeting a friend:**
+&gt; *Miluu venn shessa* — "Brightly we-of-two join the grove."
+&gt; Delivered as a slow double-pulse at the crown of the dome, warm rim-hum, one tendril extended.
 
-      <details class="session">
-        <summary><span class="summary-text"><span class="ord">Session XI</span><span class="title">The Verdict in Fire</span></span><span class="chev">&#9662;</span></summary>
-        <div class="session-body">
+**Greeting a stranger (*wesshi*):**
+&gt; *Aa-milu?* — Roughly, "Was your light ever seen here before?"
+&gt; A cautious single pulse, low and amber.
 
-          <div class="tldr">
-            <span class="tldr-label">TL;DR</span>
-            <p>Going over Darathan's captured notes (shipping documents and red-veined obsidian, no plague evidence), the party picks up a new plot hook: a missing elven princess in the Ironwield Forest. At the pirate council, Jeros is cleared and his father raised to pirate lord, but the celebration shatters when Sir Darathan's ship shells the launch with Greek fire. Jeros saves both parents, his father left burned and comatose. The party then fights the barbarians in the Tide Pool Dungeon before setting off anew. -Claude</p>
-            <p class="level">Party at level 5.</p>
-          </div>
+### Writing
+Thalume script mimics the body: vertical hanging lines (tendrils) strung with dots and knots (light beads), read top to bottom.
+- A written word looks like a strand of tendrils with lights caught in it.
+- Books are woven curtains; reading one properly means running a tendril down each strand, so the script is as much braille as text.
 
-          <div class="scene">
-            <h3>The Courtyard Meeting</h3>
-            <ul>
-              <li>Jeros, Eris, Orphelia, and Prickly meet in the tavern courtyard to go over the latest events.</li>
-              <li>Prince Darathan the Black's notes, held by Eris from after the battle:
-                <ul class="sub">
-                  <li>Shipping documents.</li>
-                  <li>No incriminating evidence relating to Bilogis.</li>
-                </ul>
-              </li>
-              <li>Orphelia mentions they were mining obsidian with red in it.</li>
-              <li>After searching the notes further:
-                <ul class="sub">
-                  <li>The hydra was a baby.</li>
-                  <li>There are shipments talking about the obsidian.</li>
-                </ul>
-              </li>
-              <li>A detective's letter detailed the disappearance of an elven princess, and the group accepted the quest to find her in the Ironwield Forest, planning their journey to begin the investigation. -Harrison Harrington</li>
-            </ul>
-          </div>
+### True Names
+True names are the one thing never spoken aloud. Each glowcap's true name is the constellation displayed inside their dome, unique from budding, and it can only be given by touch.
+"Nimbus" and "Lembas" are just the pronounceable outer names; their real names are star maps only each other has fully read.
 
-          <div class="scene">
-            <h3>The Pirate Council to Determine Jeros' Fate</h3>
-            <ul>
-              <li>The group works their way through the castle and makes their way to the reception area before the pirate council.</li>
-              <li>In the reception area:
-                <ul class="sub">
-                  <li>First Mate Nigel Philloge</li>
-                  <li>First Mate Jean Luc</li>
-                  <li>First Mate Zinzu Harikumi</li>
-                  <li>First Mate Gentleman Jack Gallaher</li>
-                  <li>Zul'Aram</li>
-                  <li>First Mate Ahmose</li>
-                </ul>
-              </li>
-              <li>Inside the council: Marcus Wraithbone, along with the other pirate lords aside from Prince Darathan.</li>
-              <li>Jeros is declared innocent of his crimes.</li>
-              <li>Jeros' father is upgraded to pirate lord.</li>
-              <li>All is well and everyone is happy.</li>
-            </ul>
-          </div>
+### The Echo Principle
+Glowcaps do not have flat words for "yes" and "no." Answers are built on **echoing**:
+- **Agreement** means catching the asker's light pattern and pulsing it back *brighter*. Enthusiastic agreement returns the pattern brighter and faster.
+- **Refusal or denial** means letting the asker's pattern land on your dome and *fade to dark* without an echo.
+- **Uncertainty** is a broken, flickering half-echo.
+The spoken words below accompany these light responses; among glowcaps the echo alone is often enough.
 
-          <div class="scene">
-            <h3>The Broadside</h3>
-            <ul>
-              <li>As the party goes to see his father's ship set into the water, Prickly spots Sir Darathan the Black's ship off in the distance.</li>
-              <li>Sir Darathan's ship fires a broadside from a long way off. While still on land, Jeros' father's ship is engulfed in magical Greek fire.</li>
-              <li>Jeros is forced to choose which parent to save, his mother or his father, while the rest of the party did what they could to save the sailors. Jeros chose his mother while doing everything he could to save his father as well. He managed to pull his father out, but horribly burned and in a sort of coma.</li>
-              <li>Orphelia takes the party, including Jeros' father, to the tavern, where Jeros continued to care for his father.</li>
-            </ul>
-          </div>
+### New Vocabulary
+- *illa* — question marker; a spiral pulse plus rising hum, opens any question
+- *navv* — to drift toward, to come
+- *sull* — to drift away, to leave
+- *hesh* — to rest, to furl one's tendrils; sleep
+- *voss* — to eat, to take food (contrast *lemm*, food freely given)
+- *luvv* — the heart-glow; the light at the center of the body
+- *luvenn* — two heart-glows pulsing in sync; love, deep bond
+- *nesh* — soon, nearly, almost within light-range
+- *ollu* — again, once more, re-echo
 
-          <div class="scene">
-            <h3>The Barbarians</h3>
-            <ul>
-              <li>After some time, the party investigated and fought the barbarians in the Tide Pool Dungeon to look into the plague plotline, before agreeing to set off on another adventure next session.</li>
-            </ul>
-          </div>
+### Common Answers
+- Yes — *Ee-milu* ("It is lit") — echo the asker's pattern, brighter
+- Emphatic yes — *Ee-miluu* ("It blazes") — fast, brilliant echo across the whole dome
+- No — *Ee-hollo* ("It is dark") — let the asker's pattern fade unanswered
+- Maybe — *Milu-hollo* ("Light-and-dark") — flickering half-echo
+- I don't know — *Ume wesshi venn* ("The word is a stranger to us") — slow dim ripple toward the rim
+- I understand — *Milu navv venn* ("The light reaches us") — steady, calm echo at the crown
+- Say it again — *Ollu, illa* ("Again, asking") — spiral pulse repeated twice
+- Wait — *Hesh ume* ("Rest the word") — rim lights hold steady, dome goes still
+- Soon — *Nesh, nesh* ("Near, near") — gentle pulses quickening in tempo
+- Never — *Yy-hollo* ("The future is dark") — dome deliberately extinguished for one full breath, the gravest answer a glowcap can give
 
-          <p class="endnote">Ended session at level 5.</p>
+### Everyday Phrases
+- Come here — *Navv venn* ("Drift to us") — crown-ward ripple, pulling light inward like a beckoning hand
+- I have to go — *Sull venn, aa-lemm* ("We drift away; it was a gift") — rim-ward ripple, warm amber fade
+- Help! — *Shessa! Hollo venn!* ("Grove! We are dimming!") — full-dome strobe, the one pattern every glowcap answers without question
+- I'm hungry — *Illa lemm? Voss venn* ("Is there a gift? We would eat") — small pulses circling the heart-glow
+- Thank you — *Miluu lemm* ("A bright gift") — warm bloom from the heart-glow up to the crown
+- You're welcome — *Shessa lemm* ("The grove gives") — soft answering bloom, dimmer than the thanks
+- I'm sorry — *Aa-hollo venn* ("We were dark") — dome dimmed, tendril extended in offering
+- It's alright / forgiven — *Ee-milu venn* ("We are lit again") — taking the offered tendril, then a shared slow pulse
+- Goodnight — *Hesh miluu* ("Rest brightly") — lights banked low and slow, like embers
+- Be careful — *Wesshi sylvenn* ("The forest holds strangers") — quick amber flickers at the rim, hushed hum
+- I love you — *Luvenn* ("Two hearts in sync") — touch register only: tendrils intertwined while both heart-glows pulse in matched rhythm, never said in open light
 
-          <details class="markup">
-            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
-            <div class="markup-body">
-              <p class="markup-note">Copy this and paste straight into Discord.</p>
-<pre id="md-11">## Session 11: The Verdict in Fire
-&gt; **TL;DR:** Going over Darathan's captured notes (shipping documents and red-veined obsidian, no plague evidence), the party picks up a new plot hook: a missing elven princess in the Ironwield Forest. At the pirate council, Jeros is cleared and his father raised to pirate lord, but the celebration shatters when Sir Darathan's ship shells the launch with Greek fire. Jeros saves both parents, his father left burned and comatose. The party then fights the barbarians in the Tide Pool Dungeon before setting off anew. -Claude
-&gt; **Level:** 5
-
-### The Courtyard Meeting
-- Jeros, Eris, Orphelia, and Prickly meet in the tavern courtyard to go over the latest events.
-- Prince Darathan the Black's notes, held by Eris from after the battle:
-  - Shipping documents.
-  - No incriminating evidence relating to Bilogis.
-- Orphelia mentions they were mining obsidian with red in it.
-- After searching the notes further:
-  - The hydra was a baby.
-  - There are shipments talking about the obsidian.
-- A detective's letter detailed the disappearance of an elven princess, and the group accepted the quest to find her in the Ironwield Forest, planning their journey to begin the investigation. -Harrison Harrington
-
-### The Pirate Council to Determine Jeros' Fate
-- The group works their way through the castle and makes their way to the reception area before the pirate council.
-- In the reception area:
-  - First Mate Nigel Philloge
-  - First Mate Jean Luc
-  - First Mate Zinzu Harikumi
-  - First Mate Gentleman Jack Gallaher
-  - Zul'Aram
-  - First Mate Ahmose
-- Inside the council: Marcus Wraithbone, along with the other pirate lords aside from Prince Darathan.
-- Jeros is declared innocent of his crimes.
-- Jeros' father is upgraded to pirate lord.
-- All is well and everyone is happy.
-
-### The Broadside
-- As the party goes to see his father's ship set into the water, Prickly spots Sir Darathan the Black's ship off in the distance.
-- Sir Darathan's ship fires a broadside from a long way off. While still on land, Jeros' father's ship is engulfed in magical Greek fire.
-- Jeros is forced to choose which parent to save, his mother or his father, while the rest of the party did what they could to save the sailors. Jeros chose his mother while doing everything he could to save his father as well. He managed to pull his father out, but horribly burned and in a sort of coma.
-- Orphelia takes the party, including Jeros' father, to the tavern, where Jeros continued to care for his father.
-
-### The Barbarians
-- After some time, the party investigated and fought the barbarians in the Tide Pool Dungeon to look into the plague plotline, before agreeing to set off on another adventure next session.
-
-*Ended session at level 5.*</pre>
-              <button class="copy" type="button" data-target="md-11" onclick="copyMarkup(this)">Copy markup</button>
+### A Note on Nimbus and Lembas
+Between bonded siblings, most of this shrinks to almost nothing. A lifetime of shared light means Lembas can answer Nimbus with a single flicker where a stranger would need the full phrase. The long forms above are what glowcaps call *wesshi-ume*, "stranger-words": the careful, complete way of speaking kept for anyone whose light you cannot yet read.</pre>
+              <button class="copy" type="button" data-target="md-thalume" onclick="copyMarkup(this)">Copy markup</button>
             </div>
           </details>
 
@@ -1145,7 +1007,7 @@
 
     </section>
 
-    <p class="foot">All eleven sessions are logged. Sessions I and II come straight from the DM's notes.</p>
+    <p class="foot">Session Zero is logged. Sessions 0.5 and I through X await their entries.</p>
   </main>
 
 <script>
