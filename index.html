@@ -153,7 +153,7 @@
   .markup-body{padding:0 1.1rem 1.1rem}
   .markup-note{font-size:.86rem;color:var(--seafoam);font-style:italic;margin:.1rem 0 .9rem}
   pre{
-    margin:0;background:#05101300;background-color:#050f12;
+    margin:0;background-color:#050f12;
     border:1px solid rgba(201,163,92,.16);border-radius:3px;
     padding:1rem 1.1rem;overflow:auto;color:var(--bone);
     font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
@@ -168,6 +168,72 @@
   .copy:hover{background:var(--brass-bright)}
   .copy:active{transform:translateY(1px)}
   .copy:focus-visible{outline:2px solid var(--brass-bright);outline-offset:2px}
+
+  /* Character database */
+  .grouphead{
+    font-family:"IM Fell English SC",serif;font-weight:400;
+    font-size:1.35rem;color:var(--brass-bright);
+    margin:2.2rem 0 .2rem;padding-bottom:.3rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .grouphead:first-child{margin-top:.8rem}
+  .scene h3 .role{
+    font-family:"EB Garamond",serif;font-size:.85rem;
+    font-style:italic;color:var(--seafoam);font-weight:400;
+  }
+  details.char{
+    border:1px solid rgba(201,163,92,.12);border-radius:3px;
+    background:rgba(201,163,92,.03);margin-top:10px;overflow:hidden;
+  }
+  details.char > summary{
+    list-style:none;cursor:pointer;
+    padding:.65rem .9rem;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    transition:background .2s ease;user-select:none;
+  }
+  details.char > summary::-webkit-details-marker{display:none}
+  details.char > summary:hover{background:rgba(201,163,92,.06)}
+  details.char > summary:focus-visible{outline:2px solid var(--brass);outline-offset:-2px}
+  details.char > summary h3{margin:0;font-size:1.15rem;flex-wrap:wrap}
+  details.char .chev{font-size:1.1rem}
+  details.char[open] > summary .chev{transform:rotate(180deg)}
+  .char-body{padding:.1rem .9rem .85rem}
+
+  /* Map gallery */
+  .map-hint{margin:.8rem 0 0;font-style:italic;color:var(--seafoam)}
+  .map-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+    gap:14px;margin:.9rem 0 .3rem;
+  }
+  .map-tile{
+    cursor:zoom-in;border:1px solid var(--panel-edge);border-radius:3px;
+    background:#0c232a;overflow:hidden;padding:0;
+    transition:border-color .2s ease,transform .12s ease;
+  }
+  .map-tile:hover{border-color:var(--brass);transform:translateY(-2px)}
+  .map-tile:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+  .map-tile img{display:block;width:100%;height:auto}
+  .map-tile .map-name{
+    display:block;padding:.5rem .7rem;
+    font-family:"IM Fell English",serif;font-size:.98rem;
+    color:var(--brass-bright);text-align:center;
+  }
+  #lightbox{
+    position:fixed;inset:0;z-index:99;display:none;
+    flex-direction:column;align-items:center;justify-content:center;gap:.7rem;
+    background:rgba(4,12,15,.94);padding:2vh 2vw;cursor:zoom-out;
+  }
+  #lightbox.open{display:flex}
+  #lightbox img{
+    max-width:96vw;max-height:88vh;object-fit:contain;
+    border:1px solid var(--panel-edge);border-radius:3px;
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+  }
+  #lightbox .lb-caption{
+    font-family:"IM Fell English SC",serif;letter-spacing:.2em;text-transform:uppercase;
+    font-size:.78rem;color:var(--brass-bright);
+  }
+  #lightbox .lb-hint{font-size:.78rem;font-style:italic;color:var(--seafoam)}
 
   .foot{text-align:center;margin-top:3.2rem;font-size:.84rem;color:var(--seafoam);font-style:italic}
 
@@ -188,6 +254,394 @@
     <section class="log">
 
       <details class="session">
+        <summary><span class="summary-text"><span class="ord">Appendix</span><span class="title">Characters and Factions</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+
+          <p class="grouphead">Player Characters</p>
+
+          <details class="char scene">
+            <summary><h3>Hella</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Jafar tried to use his charisma on her at the end of Session I and failed. When the party later found him attacking Duchess Marine, Hella (Red Jasmin) landed the final blow.</li>
+              <li>Bilogis of the Dark Pantheon is assumed to be affecting her.</li>
+              <li>In an effort to save Prickly from himself, she let everyone know, including Prickly, that the two of them are married now. Prickly agreed.</li>
+              <li>Jackson the bull is her dear friend; the damage he took in the battle for Darathan's lair left her upset.</li>
+              <li>Gave Prickly a poem to soothe his worries over his errors in combat.</li>
+              <li>Arose from her slumber wearing an odd cloak covered in mushrooms, with a strange rune. When she tries it on she senses whispers from it and feels very calm. Orphelia, Oth, and Lance know it has something to do with a pale wraith-like lady.</li>
+              <li>The cloak is white velvet fabric, made for her by the Phantom Queen, a deity who makes them in her grove.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Eris Thornveil</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Saval of the Dark Pantheon is assumed to be affecting her.</li>
+              <li>Got her first sword shard in Session 2.5, starting her on her quest to retrieve them all.</li>
+              <li>At the Tea House, explained that her sword gave her some insight.</li>
+              <li>Found letters in Prince Darathan's desk on the second floor of his lair, and kept them to herself until Session XI.</li>
+              <li>Holds Darathan's notes: shipping documents and shipments talking about the obsidian, with no incriminating evidence relating to Bilogis.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Lance</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>A large, red, menacing figure peering down from the clouds is watching him specifically. The party identified it in Session III as Volmol of the Dark Pantheon, who is assumed to be affecting him.</li>
+              <li>Volmol is also what the goblins' sacrifices were meant to summon.</li>
+              <li>Knew, along with Orphelia and Oth, that Hella's cloak has something to do with a pale wraith-like lady.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Jeros</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Picked up the goblin shaman's staff and waved it around, nearly causing a total party kill. His chaotic streak set the tone for how the party has treated him since.</li>
+              <li>Imotet of the Dark Pantheon is assumed to be affecting him, although that is not specifically said in game.</li>
+              <li>Stole Orphelia's parrot, leading to his outcasting. There is no news about the parrot.</li>
+              <li>Was mad at his dad for not letting him go out to sea, and Darathan the Black decided to take him on board his crew. After or during negotiations he lost his memory, but as time passed he realized he committed his crime.</li>
+              <li>His memories, surfaced at the Tea House, show a woman at Sir Darathan's side doing some witchcraft, and Darathan leaving with him while he was incapacitated under a spell. An enchantress in Darathan's lair is responsible for the erasing of his memories and his conviction for the stolen parrot.</li>
+              <li>The party went to the pirate lords to advocate for him and didn't do well, but the pirate council declared him innocent of his crimes and upgraded his father to pirate lord.</li>
+              <li>When Sir Darathan's broadside engulfed his father's ship in magical Greek fire, he was forced to choose which parent to save. He chose his mother while doing everything he could to save his father as well, and pulled him out horribly burned and in a sort of coma.</li>
+              <li>Cares for his father at Orphelia's tavern, where his little brother is also staying.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Ezekiel <span class="role">&mdash; left the campaign in Session IV</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Vugak of the Dark Pantheon is assumed to be affecting him.</li>
+              <li>Camping on the way back from the goblin camp, he was visited by a mysterious woman offering instant fame and fortune in exchange for his eternal soul: The Collector.</li>
+              <li>One-punched so hard in the great arena fight that he left the campaign.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Oth <span class="role">&mdash; new to the party, first logged in Session XII</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Knew, along with Orphelia and Lance, that Hella's cloak has something to do with a pale wraith-like lady.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Prickly Khactuz <span class="role">&mdash; Druid &middot; played by Web</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>The party's druid. Befriended Jackson the bull just before the goblin camp, and went on a first hunt with Sydney, the party's baby great white shark.</li>
+              <li>Izmataz of the Dark Pantheon is assumed to be affecting no one, and Prickly is positive he is not being affected. The DM laughed for some unrelated reason.</li>
+              <li>Izmataz later visited him in a dream as a magical bird-humanoid, offered knowledge of his father and his true form, and recommended he see Azec Aroman at the Tower.</li>
+              <li>Found out that Orphelia is his long-lost adopted sister.</li>
+              <li>Married to Hella, as of Hella letting everyone know. He agreed.</li>
+              <li>Reunited with his father Khozi, now in his final form as a magical tree, and is investigating how he may also achieve this form of druid nirvana.</li>
+              <li>Founded a network of espionage and spycraft through his trusty seagulls, which found Darathan's black ship.</li>
+              <li>Pushed for talking with the rat folk because of their cuteness, scouted Darathan's lair in spider form, and had the party spare the juvenile hydra.</li>
+            </ul>
+            </div>
+          </details>
+
+          <p class="grouphead">Factions</p>
+
+          <details class="char scene">
+            <summary><h3>The Dark Pantheon <span class="role">&mdash; six dark gods</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>70 years ago, six dark gods attempted to break into the world. They normally are solo, but this time they joined together to have the planet as a playground of destruction.</li>
+              <li>It's a possibility they have agents on the planet. Each is responsible for and connected to many of the players.</li>
+              <li>Saval: temptress, red horns, ambition. Assumed to be affecting Eris.</li>
+              <li>Bilogis: famine, green. Assumed to be affecting Hella. The root cause of the plague on the Plague Island.</li>
+              <li>Vugak: clown, laughter and trickery. Assumed to be affecting Ezekiel.</li>
+              <li>Volmol: the big red one, war and destruction. Assumed to be affecting Lance, and the god the goblins' sacrifices were meant to summon.</li>
+              <li>Izmataz: god of knowledge, by his own word the god of unrelenting knowledge. Assumed to be affecting no one. Visited Prickly's dream as a magical bird-humanoid, suffering from a severe auditory hallucination, constantly hearing his name and conversations echoing in his mind.</li>
+              <li>Imotet: god of death. Assumed to be affecting Jeros, although that is not specifically said in game.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Dark Fire Circus</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Where the party's story began: gambling and carnival games, then a show in the Big Top that ended when goblin raiders swarmed it.</li>
+              <li>Jyasinta Helvitar, the fortune teller, teleported herself to safety during the raid.</li>
+              <li>Elbafore Critterspeaker performs wild magics with his fish in a bubble, Jeramiah. The goblins held him in a cave near their camp.</li>
+              <li>Lady Alrina Kazadina, a powerful druid who speaks to animals, performs with her mammoth.</li>
+              <li>Other proprietors include Dr Simon Corvus, a potion seller who seems a little off, and Theradeas Toplledoppolos, one of the brothers who own the Gooey Pork Tavern chain.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Goblins</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Raiders who swarmed the Big Top of the Dark Fire Circus and made off with prisoners.</li>
+              <li>Their leader looks massive by goblin standards, with glowing red eyes.</li>
+              <li>Their sacrifices were meant to summon not the spider god everyone assumed, but Volmol of the Dark Pantheon.</li>
+              <li>The party fought through their camp with Jackson the bull and killed the goblin shaman. Jeros picked up the shaman's staff, and the party took the ritual book.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>L'Equip <span class="role">&mdash; a bastion near the Dark Fire Circus</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Its knights arrived to cover the party's retreat from the goblin raid. Joseph Kiliman is its Knight Commander.</li>
+              <li>Duchess Marine hinted that all is not what it seems in L'Equip.</li>
+              <li>Jafar was guilty of treachery. The party found him in the throne room attacking Duchess Marine and killed him, with Hella landing the final blow.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Fizzle Industries</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Told the party more about the cannon they were after: it was being held by a lady in red, who turned out to be Orphelia.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Pirate Lord Council</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>The eight pirate lords: Capitan Del Herro Nochas, Capitan Emilia Von Drakkenberg, Kairi Namujima, the Gentleman Pirate, Pirate Capitan Osiris, Orphelia, Pirate Prince Darathan the Black, and Gozlock.</li>
+              <li>The party went to the different pirate lords to advocate for Jeros and didn't really do well.</li>
+              <li>In the reception area before the council: First Mate Nigel Philloge, First Mate Jean Luc, First Mate Zinzu Harikumi, First Mate Gentleman Jack Gallaher, Zul'Aram, and First Mate Ahmose.</li>
+              <li>Inside the council sat Marcus Wraithbone, along with the other pirate lords aside from Prince Darathan.</li>
+              <li>Declared Jeros innocent of his crimes and upgraded his father to pirate lord.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Rat Folk</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Rat-like humanoids running a secret mining operation beneath the tide pool, under a commander named Sloppy Crookshanks.</li>
+              <li>They are after a green shining rock, which is very hazardous to the touch and, when consumed, gives the rats powerful abilities.</li>
+              <li>Persuaded to join the battle against the dark elves, with access to the green stones as payment.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Dark Elves <span class="role">&mdash; Darathan the Black's mining operation</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>A slave mining operation in the Tide Pool Dungeon, with a frightening number of slaves and soldiers working for Darathan the Black.</li>
+              <li>They were mining obsidian with red in it; Darathan's notes mention shipments of the obsidian.</li>
+              <li>The tunnels to their lair pass a pool of dead bodies, the domain of a very large basilisk or other large serpent-like creature.</li>
+              <li>Kept a juvenile hydra that did a ton of damage in the battle. The party did not kill it, on behalf of Prickly's wishes.</li>
+              <li>Stormed by the party and the rat folk from the Tide Pool Dungeon while Orphelia attacked from above ground. Prince Darathan got away, and the slaves freed were people who had been going missing around town.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Barbarians</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Extremely confrontational dwellers of the cavern network; an uneasy annoyance for Sloppy Crookshanks.</li>
+              <li>The party investigated and fought them in the Tide Pool Dungeon to look into the plague plotline.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Red Crusaders</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Methias Gank, a monster/witch hunter, works with them.</li>
+              <li>They are looking for a hag in the woods, and believe the spiders are connected.</li>
+              <li>A bit on the racist side, favoring humans.</li>
+              <li>Hella wants to talk about their religion; the party got led to a tent.</li>
+            </ul>
+            </div>
+          </details>
+
+          <p class="grouphead">NPCs</p>
+
+          <details class="char scene">
+            <summary><h3>Darathan the Black <span class="role">&mdash; Pirate Prince, one of the eight pirate lords</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Also called Prince Darathan and Sir Darathan.</li>
+              <li>His black ship was seen dumping the bodies of dead slaves into the ocean, which washed ashore and became the onset of the plague on the Plague Island.</li>
+              <li>Took Jeros on board his crew, and left with him while Jeros was incapacitated under a spell.</li>
+              <li>Ran the dark elf slave mining operation in the Tide Pool Dungeon from an office on its 2nd level, along with the enchantress.</li>
+              <li>Got away when the lair was stormed. The notes Eris took from his desk hold shipping documents and obsidian shipments, with no incriminating evidence relating to Bilogis.</li>
+              <li>Was not among the pirate lords at the council that cleared Jeros. Afterward his ship fired a broadside from a long way off, engulfing Jeros's father's ship in magical Greek fire.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Enchantress <span class="role">&mdash; at Darathan's side</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Seen with Darathan in an office on the 2nd level of the dark elf lair.</li>
+              <li>Responsible for the erasing of Jeros's memories and his conviction for the stolen parrot.</li>
+              <li>In the memories surfaced at the Tea House, a woman at Sir Darathan's side did some witchcraft before Darathan left with Jeros under a spell.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Orphelia <span class="role">&mdash; pirate lord and Prickly's adopted sister</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>A powerful pirate captain, the lady in red, and one of the eight pirate lords.</li>
+              <li>Prickly's long-lost adopted sister.</li>
+              <li>The recipient of the cannon the party needed to find, as they learned from the royal lady.</li>
+              <li>Jeros stole her parrot, which led to his outcasting.</li>
+              <li>Keeps a tavern where the party settles. Jeros's little brother stays there, and she took Jeros's burned father there after the broadside.</li>
+              <li>Sent the party to investigate a suspicious tide pool, greenlit the battle with the dark elves, and attacked from above ground while the party and rat folk attacked from the Tide Pool Dungeon.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Collector <span class="role">&mdash; a nemesis-like figure</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Appeared to Ezekiel as a mysterious woman offering instant fame and fortune in exchange for his eternal soul.</li>
+              <li>A nemesis-like figure for the party.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Jackson <span class="role">&mdash; the bull</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Befriended by Prickly just before the goblin camp, where he proved a formidable asset, slaying many goblins himself.</li>
+              <li>Hella's dear friend. Damaged in the battle for Darathan's lair, but more than eager to keep fighting, and confirmed he is happy and fighting beside his friends by his own will.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Broxagar <span class="role">&mdash; the Sheriff</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Had a nice tea party with the party. Prickly left him spiders to tend to the pests in his beloved garden.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Khozi <span class="role">&mdash; Prickly's father</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Reached his final form as a magical tree, just by sitting around many critters. What kind of tree is unknown.</li>
+              <li>Izmataz offered Prickly knowledge of him and his true form, and pointed to Azec Aroman at the Tower to find out more about his state.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Sydney <span class="role">&mdash; baby great white shark</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Joined the party in Session VII.</li>
+              <li>Went on a first hunt with Prickly.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Jeros's Family</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Jeros was mad at his dad for not letting him go out to sea; Darathan the Black then took him on board his crew.</li>
+              <li>The pirate council upgraded his father to pirate lord. As his father's ship was being set into the water, Sir Darathan's broadside engulfed it in magical Greek fire.</li>
+              <li>Jeros chose to save his mother while doing everything he could for his father, who was pulled out horribly burned and in a sort of coma. Jeros cares for him at Orphelia's tavern.</li>
+              <li>His little brother is staying with Orphelia in her tavern.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Emilia Von Drakkenberg <span class="role">&mdash; Capitan, one of the eight pirate lords</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>With the use of the tea, she can peer into Jeros's mind and potentially act as a witness.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Azec Aroman <span class="role">&mdash; at the Tower</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Izmataz recommends Prickly see him to find out more about his father's state.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Missing Elven Princess</h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>A detective's letter detailed her disappearance.</li>
+              <li>The party accepted the quest to find her in the Ironwield Forest.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Sal <span class="role">&mdash; a wizard</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>The party ran into him, along with a member of the queen's guard, after fighting some spiders near the Ironwield Forest.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>The Phantom Queen <span class="role">&mdash; a deity</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Makes white velvet fabric in her grove, and made Hella's mushroom-covered cloak for her.</li>
+            </ul>
+            </div>
+          </details>
+
+          <details class="char scene">
+            <summary><h3>Methias Gank <span class="role">&mdash; monster/witch hunter</span></h3><span class="chev">&#9662;</span></summary>
+            <div class="char-body">
+            <ul>
+              <li>Works with the Red Crusaders, who are looking for a hag in the woods.</li>
+            </ul>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
+      <details class="session empty">
+        <summary><span class="summary-text"><span class="ord">Appendix</span><span class="title">Maps</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+          <p class="map-hint">No maps aboard yet. Send one and it gets charted here.</p>
+          <div class="map-grid">
+          </div>
+        </div>
+      </details>
+
+      <details class="session">
         <summary><span class="summary-text"><span class="ord">Session I</span><span class="title">The Carnival (DM Notes)</span></span><span class="chev">&#9662;</span></summary>
         <div class="session-body">
 
@@ -203,7 +657,7 @@
               <li>The party starts at the Dark Fire Circus, following a brief introduction of how and why each character ended up there, then eases in with gambling and carnival games.</li>
               <li>The attractions and their proprietors:
                 <ul class="sub">
-                  <li>Food from the Nobleshnap brothers of the GooeyPork Tavern franchise</li>
+                  <li>Food from the Nobleshnap brothers of the Gooey Pork Tavern franchise</li>
                   <li>Fortune telling by Jyasinta Helvitar</li>
                   <li>Ring Da BellZ, run by Azlugg the Mighty</li>
                   <li>Target Practice, run by Grizzle Tooth Snagger</li>
@@ -254,7 +708,7 @@
 ### The Dark Fire Circus
 - The party starts at the Dark Fire Circus, following a brief introduction of how and why each character ended up there, then eases in with gambling and carnival games.
 - The attractions and their proprietors:
-  - Food from the Nobleshnap brothers of the GooeyPork Tavern franchise
+  - Food from the Nobleshnap brothers of the Gooey Pork Tavern franchise
   - Fortune telling by Jyasinta Helvitar
   - Ring Da BellZ, run by Azlugg the Mighty
   - Target Practice, run by Grizzle Tooth Snagger
@@ -419,7 +873,7 @@
                 <ul class="sub">
                   <li>Saval is assumed to be affecting Eris.</li>
                   <li>Bilogis is assumed to be affecting Hella.</li>
-                  <li>Vugak is assumed to be affecting Ezekial.</li>
+                  <li>Vugak is assumed to be affecting Ezekiel.</li>
                   <li>Volmol is assumed to be affecting Lance.</li>
                   <li>Izmataz is assumed to be affecting no one. Prickly is positive he is not being affected. The DM laughed for some unrelated reason.</li>
                   <li>Imotet is assumed to be affecting Jeros, although that is not specifically said in game.</li>
@@ -451,7 +905,7 @@
 - Each of these deities is responsible for and connected to many of the players:
   - Saval is assumed to be affecting Eris.
   - Bilogis is assumed to be affecting Hella.
-  - Vugak is assumed to be affecting Ezekial.
+  - Vugak is assumed to be affecting Ezekiel.
   - Volmol is assumed to be affecting Lance.
   - Izmataz is assumed to be affecting no one. Prickly is positive he is not being affected. The DM laughed for some unrelated reason.
   - Imotet is assumed to be affecting Jeros, although that is not specifically said in game.
@@ -574,13 +1028,13 @@
 
           <div class="tldr">
             <span class="tldr-label">TL;DR</span>
-            <p>The party reaches the pirate island and digs into Jeros's situation, getting precious little help from Jeros himself. Prickly has an emotional reunion with his father Khozi, now in his final form as a magical tree, and starts looking into reaching that same druidic state. -Claude</p>
+            <p>The party reaches the Pirate Island and digs into Jeros's situation, getting precious little help from Jeros himself. Prickly has an emotional reunion with his father Khozi, now in his final form as a magical tree, and starts looking into reaching that same druidic state. -Claude</p>
             <p class="level">Party at level 4.</p>
           </div>
 
           <div class="scene">
             <ul>
-              <li>The party arrived at the pirate island and found out more about Jeros and his situation, despite Jeros being as helpful as a toothpick at a dentist's office.</li>
+              <li>The party arrived at the Pirate Island and found out more about Jeros and his situation, despite Jeros being as helpful as a toothpick at a dentist's office.</li>
               <li>Darathan the Black is a meanie.</li>
               <li>Prickly reunites in an emotional reunion with his father Khozi. Prickly is overjoyed with his father's final form as a magical tree. Prickly investigates how he may also achieve this new form of druid nirvana.</li>
             </ul>
@@ -593,10 +1047,10 @@
             <div class="markup-body">
               <p class="markup-note">Copy this and paste straight into Discord.</p>
 <pre id="md-6">## Session 6: Intro to the Pirate Island
-&gt; **TL;DR:** The party reaches the pirate island and digs into Jeros's situation, getting precious little help from Jeros himself. Prickly has an emotional reunion with his father Khozi, now in his final form as a magical tree, and starts looking into reaching that same druidic state. -Claude
+&gt; **TL;DR:** The party reaches the Pirate Island and digs into Jeros's situation, getting precious little help from Jeros himself. Prickly has an emotional reunion with his father Khozi, now in his final form as a magical tree, and starts looking into reaching that same druidic state. -Claude
 &gt; **Level:** 4
 
-- The party arrived at the pirate island and found out more about Jeros and his situation, despite Jeros being as helpful as a toothpick at a dentist's office.
+- The party arrived at the Pirate Island and found out more about Jeros and his situation, despite Jeros being as helpful as a toothpick at a dentist's office.
 - Darathan the Black is a meanie.
 - Prickly reunites in an emotional reunion with his father Khozi. Prickly is overjoyed with his father's final form as a magical tree. Prickly investigates how he may also achieve this new form of druid nirvana.
 
@@ -644,8 +1098,8 @@
             <div class="markup-body">
               <p class="markup-note">Copy this and paste straight into Discord.</p>
 <pre id="md-7">## Session 7: Taking the Sea Dragon
-> **TL;DR:** Captured the ship The Sea Dragon, killed her captain, and took the survivors' surrender. Earned 390 gp each and gained a baby great white shark named Sydney. -Claude
-> **Level:** 4
+&gt; **TL;DR:** Captured the ship The Sea Dragon, killed her captain, and took the survivors' surrender. Earned 390 gp each and gained a baby great white shark named Sydney. -Claude
+&gt; **Level:** 4
 
 ### Orphelia's Tavern
 - No idea what kind of tree Khozi turned into, but he did so just by sitting around many critters.
@@ -697,7 +1151,7 @@
                   <li>Kairi Namujima</li>
                   <li>The Gentleman Pirate</li>
                   <li>Pirate Capitan Osiris</li>
-                  <li>Orphilia</li>
+                  <li>Orphelia</li>
                   <li>Pirate Prince Darathan the Black</li>
                   <li>Gozlock</li>
                 </ul>
@@ -711,7 +1165,7 @@
             <ul>
               <li>Jeros was mad at his dad for not letting him go out to sea. Darathan the Black decided to take him on board his crew. After/during negotiations Jeros lost his memory, but as time passed he realized he committed his crime.</li>
               <li>Eris explains that her sword gave her some insight.</li>
-              <li>We learn that Emilia Van Drakenburg, with the use of the tea, can peer into his mind and potentially act as a witness.</li>
+              <li>We learn that Emilia Von Drakkenberg, with the use of the tea, can peer into his mind and potentially act as a witness.</li>
             </ul>
           </div>
 
@@ -741,8 +1195,8 @@
             <div class="markup-body">
               <p class="markup-note">Copy this and paste straight into Discord.</p>
 <pre id="md-8">## Session 8: What the Tea Revealed
-> **TL;DR:** Lobbied the pirate lord council to back Jeros and fell flat. At the Tea House, learned the tea can surface Jeros's lost memories of his crime, with Emilia able to act as a witness, and saw that Sir Darathan had taken him away under a spell. -Claude
-> **Level:** 4
+&gt; **TL;DR:** Lobbied the pirate lord council to back Jeros and fell flat. At the Tea House, learned the tea can surface Jeros's lost memories of his crime, with Emilia able to act as a witness, and saw that Sir Darathan had taken him away under a spell. -Claude
+&gt; **Level:** 4
 
 ### Out at Sea
 - Sydney and Prickly went on their first hunt.
@@ -758,7 +1212,7 @@
   - Kairi Namujima
   - The Gentleman Pirate
   - Pirate Capitan Osiris
-  - Orphilia
+  - Orphelia
   - Pirate Prince Darathan the Black
   - Gozlock
 - We didn't really do well in doing so given we didn't really have much information, and it's Jeros.
@@ -766,7 +1220,7 @@
 ### Tea House
 - Jeros was mad at his dad for not letting him go out to sea. Darathan the Black decided to take him on board his crew. After/during negotiations Jeros lost his memory, but as time passed he realized he committed his crime.
 - Eris explains that her sword gave her some insight.
-- We learn that Emilia Van Drakenburg, with the use of the tea, can peer into his mind and potentially act as a witness.
+- We learn that Emilia Von Drakkenberg, with the use of the tea, can peer into his mind and potentially act as a witness.
 
 ### Tavern
 - Orphelia fetches for her at her tavern.
@@ -928,7 +1382,7 @@
           <div class="scene">
             <h3>The Battle</h3>
             <ul>
-              <li>Orphelia greenlights the battle with the dark elves and mentions she will attack from above ground while the party and rat folk attack from the Tide Pool Dungeons.</li>
+              <li>Orphelia greenlights the battle with the dark elves and mentions she will attack from above ground while the party and rat folk attack from the Tide Pool Dungeon.</li>
               <li>The battle is fierce, and many characters are nearly killed.</li>
               <li>The dark elves had a juvenile hydra that did a ton of damage. The party did not kill the hydra, on behalf of Prickly's wishes.</li>
             </ul>
@@ -989,7 +1443,7 @@
 - On their way out, they also persuade the rat folk to join any potential battle with the dark elves, with access to the green stones as payment.
 
 ### The Battle
-- Orphelia greenlights the battle with the dark elves and mentions she will attack from above ground while the party and rat folk attack from the Tide Pool Dungeons.
+- Orphelia greenlights the battle with the dark elves and mentions she will attack from above ground while the party and rat folk attack from the Tide Pool Dungeon.
 - The battle is fierce, and many characters are nearly killed.
 - The dark elves had a juvenile hydra that did a ton of damage. The party did not kill the hydra, on behalf of Prickly's wishes.
 
@@ -1054,7 +1508,7 @@
           </div>
 
           <div class="scene">
-            <h3>The Pirate Council to Determine Jeros' Fate</h3>
+            <h3>The Pirate Council to Determine Jeros's Fate</h3>
             <ul>
               <li>The group works their way through the castle and makes their way to the reception area before the pirate council.</li>
               <li>In the reception area:
@@ -1069,7 +1523,7 @@
               </li>
               <li>Inside the council: Marcus Wraithbone, along with the other pirate lords aside from Prince Darathan.</li>
               <li>Jeros is declared innocent of his crimes.</li>
-              <li>Jeros' father is upgraded to pirate lord.</li>
+              <li>Jeros's father is upgraded to pirate lord.</li>
               <li>All is well and everyone is happy.</li>
             </ul>
           </div>
@@ -1078,9 +1532,9 @@
             <h3>The Broadside</h3>
             <ul>
               <li>As the party goes to see his father's ship set into the water, Prickly spots Sir Darathan the Black's ship off in the distance.</li>
-              <li>Sir Darathan's ship fires a broadside from a long way off. While still on land, Jeros' father's ship is engulfed in magical Greek fire.</li>
+              <li>Sir Darathan's ship fires a broadside from a long way off. While still on land, Jeros's father's ship is engulfed in magical Greek fire.</li>
               <li>Jeros is forced to choose which parent to save, his mother or his father, while the rest of the party did what they could to save the sailors. Jeros chose his mother while doing everything he could to save his father as well. He managed to pull his father out, but horribly burned and in a sort of coma.</li>
-              <li>Orphelia takes the party, including Jeros' father, to the tavern, where Jeros continued to care for his father.</li>
+              <li>Orphelia takes the party, including Jeros's father, to the tavern, where Jeros continued to care for his father.</li>
             </ul>
           </div>
 
@@ -1112,7 +1566,7 @@
   - There are shipments talking about the obsidian.
 - A detective's letter detailed the disappearance of an elven princess, and the group accepted the quest to find her in the Ironwield Forest, planning their journey to begin the investigation. -Harrison Harrington
 
-### The Pirate Council to Determine Jeros' Fate
+### The Pirate Council to Determine Jeros's Fate
 - The group works their way through the castle and makes their way to the reception area before the pirate council.
 - In the reception area:
   - First Mate Nigel Philloge
@@ -1123,14 +1577,14 @@
   - First Mate Ahmose
 - Inside the council: Marcus Wraithbone, along with the other pirate lords aside from Prince Darathan.
 - Jeros is declared innocent of his crimes.
-- Jeros' father is upgraded to pirate lord.
+- Jeros's father is upgraded to pirate lord.
 - All is well and everyone is happy.
 
 ### The Broadside
 - As the party goes to see his father's ship set into the water, Prickly spots Sir Darathan the Black's ship off in the distance.
-- Sir Darathan's ship fires a broadside from a long way off. While still on land, Jeros' father's ship is engulfed in magical Greek fire.
+- Sir Darathan's ship fires a broadside from a long way off. While still on land, Jeros's father's ship is engulfed in magical Greek fire.
 - Jeros is forced to choose which parent to save, his mother or his father, while the rest of the party did what they could to save the sailors. Jeros chose his mother while doing everything he could to save his father as well. He managed to pull his father out, but horribly burned and in a sort of coma.
-- Orphelia takes the party, including Jeros' father, to the tavern, where Jeros continued to care for his father.
+- Orphelia takes the party, including Jeros's father, to the tavern, where Jeros continued to care for his father.
 
 ### The Barbarians
 - After some time, the party investigated and fought the barbarians in the Tide Pool Dungeon to look into the plague plotline, before agreeing to set off on another adventure next session.
@@ -1143,10 +1597,92 @@
         </div>
       </details>
 
+      <details class="session">
+        <summary><span class="summary-text"><span class="ord">Session XII</span><span class="title">White Velvet</span></span><span class="chev">&#9662;</span></summary>
+        <div class="session-body">
+
+          <div class="tldr">
+            <span class="tldr-label">TL;DR</span>
+            <p>Hella wakes wearing an odd cloak covered in mushrooms and marked with a strange rune; trying it on, she senses whispers and feels very calm, and Orphelia, Oth, and Lance tie it to a pale wraith-like lady. After a fight with spiders near the Ironwield Forest, the party runs into a wizard named Sal and a member of the queen's guard, and learns the cloak is white velvet fabric made for her by the Phantom Queen, a deity who makes them in her grove. They also meet Methias Gank, a monster/witch hunter working with the Red Crusaders, who are looking for a hag in the woods; Hella wants to talk about their religion, and they get led to a tent. -Claude</p>
+            <p class="level">Party at level 5.</p>
+          </div>
+
+          <div class="scene">
+            <h3>Waking Up and Checking Out the Cloak</h3>
+            <ul>
+              <li>Hella arises from her slumber with an odd cloak on. It's covered in mushrooms and has a strange rune.</li>
+              <li>She senses there is something magical about it.</li>
+              <li>Orphelia, Oth, and Lance all roll well and know this has something to do with a pale wraith-like lady.</li>
+              <li>When she tries it on, she senses whispers from the cloak and she feels very calm.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>Near the Ironwield Forest</h3>
+            <ul>
+              <li>After fighting some spiders near the Ironwield Forest, we ran into a wizard named Sal and a member of the queen's guard.</li>
+              <li>The Phantom Queen is a deity that has made it for her. It's called white velvet fabric. She makes them in her grove.</li>
+              <li>He asked her if she felt down about this.</li>
+              <li>The spiders leave iron shards in their web naturally, though they themselves are monstrosities.</li>
+            </ul>
+          </div>
+
+          <div class="scene">
+            <h3>The Red Crusaders</h3>
+            <ul>
+              <li>Methias Gank is a monster/witch hunter working with the Red Crusaders.</li>
+              <li>They are looking for a hag in the woods. They believe the spiders are connected.</li>
+              <li>They are a bit on the racist side, favoring humans.</li>
+              <li>Hella wants to talk about their religion; they get led to a tent.</li>
+            </ul>
+          </div>
+
+          <p class="endnote">Ended session at level 5.</p>
+
+          <details class="markup">
+            <summary>Reveal Discord markup <span class="chev">&#9662;</span></summary>
+            <div class="markup-body">
+              <p class="markup-note">Copy this and paste straight into Discord.</p>
+<pre id="md-12">## Session 12: White Velvet
+&gt; **TL;DR:** Hella wakes wearing an odd cloak covered in mushrooms and marked with a strange rune; trying it on, she senses whispers and feels very calm, and Orphelia, Oth, and Lance tie it to a pale wraith-like lady. After a fight with spiders near the Ironwield Forest, the party runs into a wizard named Sal and a member of the queen's guard, and learns the cloak is white velvet fabric made for her by the Phantom Queen, a deity who makes them in her grove. They also meet Methias Gank, a monster/witch hunter working with the Red Crusaders, who are looking for a hag in the woods; Hella wants to talk about their religion, and they get led to a tent. -Claude
+&gt; **Level:** 5
+
+### Waking Up and Checking Out the Cloak
+- Hella arises from her slumber with an odd cloak on. It's covered in mushrooms and has a strange rune.
+- She senses there is something magical about it.
+- Orphelia, Oth, and Lance all roll well and know this has something to do with a pale wraith-like lady.
+- When she tries it on, she senses whispers from the cloak and she feels very calm.
+
+### Near the Ironwield Forest
+- After fighting some spiders near the Ironwield Forest, we ran into a wizard named Sal and a member of the queen's guard.
+- The Phantom Queen is a deity that has made it for her. It's called white velvet fabric. She makes them in her grove.
+- He asked her if she felt down about this.
+- The spiders leave iron shards in their web naturally, though they themselves are monstrosities.
+
+### The Red Crusaders
+- Methias Gank is a monster/witch hunter working with the Red Crusaders.
+- They are looking for a hag in the woods. They believe the spiders are connected.
+- They are a bit on the racist side, favoring humans.
+- Hella wants to talk about their religion; they get led to a tent.
+
+*Ended session at level 5.*</pre>
+              <button class="copy" type="button" data-target="md-12" onclick="copyMarkup(this)">Copy markup</button>
+            </div>
+          </details>
+
+        </div>
+      </details>
+
     </section>
 
-    <p class="foot">All eleven sessions are logged. Sessions I and II come straight from the DM's notes.</p>
+    <p class="foot">Sessions I through XII are logged. Sessions I and II come straight from the DM's notes.</p>
   </main>
+
+<div id="lightbox" onclick="closeMap()" role="dialog" aria-modal="true" aria-label="Map viewer">
+  <span class="lb-caption" id="lb-caption"></span>
+  <img id="lb-img" src="" alt="">
+  <span class="lb-hint">Click anywhere or press Esc to close</span>
+</div>
 
 <script>
   function copyMarkup(btn){
@@ -1169,6 +1705,20 @@
     try { document.execCommand('copy'); done(); } catch(e){}
     document.body.removeChild(ta);
   }
+  function openMap(src, name){
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lb-img');
+    img.src = src; img.alt = 'Map: ' + name;
+    document.getElementById('lb-caption').textContent = name;
+    lb.classList.add('open');
+  }
+  function closeMap(){
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lb-img').src = '';
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMap();
+  });
 </script>
 </body>
 </html>
